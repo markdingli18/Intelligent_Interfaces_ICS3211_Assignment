@@ -1,0 +1,126 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: "Franklin Gothic";
+}
+.header{
+    min-height: 100vh;
+    width: 100%;
+    background-image: linear-gradient(rgba(4, 9, 30, 0.622),rgba(4, 9, 30, 0.622)),url("/img/background4.jpg");
+    background-position: center;
+    background-size: cover;
+    position: relative;
+}
+nav{
+    display: flex;
+    padding: 2%, 6%;
+    justify-content: space-between;
+    align-items: center;
+}
+nav img{
+    width: 250px;
+}
+.nav-links{
+    flex: 1;
+    text-align: right;
+    padding-right: 70px;
+}
+.nav-links ul li{
+    list-style: none;
+    display: inline-block;
+    padding: 8px 12px;
+    position: relative;
+}
+.nav-links ul li a{
+    color: white;
+    text-decoration: none;
+    font-size: 20px;
+}
+.nav-links ul li::after{
+    content: '';
+    width: 0%;
+    height: 3px;
+    background: #ff0000;
+    display: block;
+    margin: auto;
+    margin-top: 3px;
+    transition: 0.8s;
+}
+.nav-links ul li:hover::after{
+    width: 100%;
+}
+.text-box{
+    width: 90%;
+    color: white;
+    position: absolute;
+    top: 58%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    text-align: center;
+}
+.text-box h1{
+    font-size: 62px;
+}
+.text-box h3{
+    margin: 30px 0px;
+    font-size: 27px;
+}
+.text-box p{
+    margin: 20px 0px 40px;
+    font-size: 17px;
+}
+.text-box h4{
+    margin: 40px 0px;
+    font-size: 23px;
+}
+.hero-btn {
+    display: inline-block;
+    text-decoration: none;
+    color: white;
+    border: 2px solid #fff;
+    padding: 12px 34px;
+    font-size: 13px;
+    font-weight: bold;
+    background: transparent;
+    position: relative;
+    cursor: pointer;
+    border-radius: 50px;
+    overflow: hidden;
+}
+.hero-btn:hover {
+    transition: background 0.6s ease-in-out;
+}
+.hero-btn::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -50%;
+    width: 50%;
+    height: 100%;
+    background: #0b3a7b;
+    transition: left 0.6s ease-in-out;
+    border-radius: 50px 0 0 50px; 
+    z-index: 0; 
+}
+.hero-btn::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: -50%;
+    width: 50%;
+    height: 100%;
+    background: #ff0000;
+    transition: right 0.6s ease-in-out;
+    border-radius: 0 50px 50px 0;  
+    z-index: 0;
+}
+.hero-btn:hover::before {
+    left: 0;
+}
+.hero-btn:hover::after {
+    right: 0;
+}
+.hero-btn span {
+    position: relative;
+    z-index: 2;
+}
