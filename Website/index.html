@@ -5,20 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MedEdMate Website</title>
     <link rel="stylesheet" href="style.css">
-</head>
-<body>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"></head>
+<body class="background_about_us">
     <section class="header">
         <nav>
             <a href="index.html"><img src="/img/logo.png"></a>
-            <div class="nav-links">
+            <div class="nav-links" id="navLinks">
+                <i class="fa fa-times" onclick="hideMenu()"></i>
                 <ul>
-                    <li><a href="#">HOME</a></li>
+                    <li><a href="index.html">HOME</a></li>
                     <li><a href="#">CHAT BOT</a></li>
                     <li><a href="#">DISPOSE</a></li>
                     <li><a href="#">UI</a></li>
-                    <li><a href="#">ABOUT US</a></li>
+                    <li><a href="about.html">ABOUT US</a></li>
                 </ul>
             </div>
+            <i class="fa fa-bars" onclick="showMenu()"></i>
         </nav>
         <div class="text-box">
             <h1>Welcome to MedEdMate!</h1>
@@ -28,5 +30,63 @@
             <a href="" class="hero-btn"><span>TRY OUR CHATBOT!</span></a>
         </div>  
     </section>
+
+    <!--------Chat Bot-------->
+    
+    <div class="chat-header">
+        <h2>MedEdMate Chatbot</h2>
+    </div>
+
+    <section class="chat_bot_master">
+        <div class="chat_bot_image">
+            <img src="/img/robot_normal.png" alt="Chat Bot Image">
+        </div>
+        <div class="chat_bot">
+            <div class="chat-area" id="chatArea">
+            <!-- Chat messages will go here -->
+            </div>
+            <div class="chat-input">
+            <input type="text" id="userInput" placeholder="Type a message...">
+            <button id="sendButton">Send</button>
+            </div>
+        </div>
+    </section>
+
+    <!----Footer---->
+    <footer>
+        <div class="left-image">
+            <a href="index.html"><img src="/img/logo.png" alt="Left Image"></a>
+        </div>
+        <ul class="menu">
+            <li><a href="index.html">HOME</a></li>
+            <li><a href="#">CHAT BOT</a></li>
+            <li><a href="#">DISPOSE</a></li>
+            <li><a href="#">UI</a></li>
+            <li><a href="about.html">ABOUT US</a></li>
+        </ul>
+        <ul class="social-icon"> 
+            <li><a href=""><i class="fa fa-facebook-square"></i></a></li>
+            <li><a href=""><i class="fa fa-instagram"></i></a></li>
+            <li><a href=""><i class="fa fa-linkedin-square"></i></a></li>
+            <li><a href=""><i class="fa fa-envelope"></i></a></li>
+        </ul>
+        <div class="right-image">
+            <a href="https://www.um.edu.mt/ict/ai/" target="_blank"><img src="/img/other/uom.png" alt="Right Image" ></a>
+        </div>
+        <p>©2023 MedEdMate | All Rights Reserved</p>
+    </footer>
+
+    <!--------JavaScript for Toggle Menu-------->
+    <script>
+        var navLinks = document.getElementById("navLinks");
+
+        function showMenu(){
+            navLinks.style.right = "0";
+        }
+        function hideMenu(){
+            navLinks.style.right = "-270px"; 
+        }
+    </script>
+
 </body>
 </html>

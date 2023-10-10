@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MedEdMate Website</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="about.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"></head>
+<body class="background_about_us">
+    <section class="sub-header">
+        <nav>
+            <a href="index.html"><img src="/img/logo.png"></a>
+            <div class="nav-links" id="navLinks">
+                <i class="fa fa-times" onclick="hideMenu()"></i>
+                <ul>
+                    <li><a href="index.html">HOME</a></li>
+                    <li><a href="#">CHAT BOT</a></li>
+                    <li><a href="#">DISPOSE</a></li>
+                    <li><a href="#">UI</a></li>
+                    <li><a href="about.html">ABOUT US</a></li>
+                </ul>
+            </div>
+            <i class="fa fa-bars" onclick="showMenu()"></i>
+        </nav>
+        <h1>About Us</h1>
+    </section>
+
+    <section class="info">
+        <div class="our_mission">
+            <h1>Who We Are</h1>
+            <p>MedEdMate is more than just a platform; it's a commitment to public health. Born from the need to address the escalating issue of antibiotic misuse, we serve as a beacon of reliable information in a sea of misinformation. Our technology is a blend of innovation and necessity, designed to provide accurate, easy-to-understand guidelines on antibiotic use. We don't just offer a service; we offer peace of mind.</p>
+        </div>
+        <div class="who_we_are">
+            <h1>Our Mission</h1>
+            <p>At MedEdMate, our mission is to empower people to make informed decisions about antibiotic use. We aim to simplify the complex world of antibiotics through our interactive chatbot, providing easy-to-understand and accurate information. Our ultimate goal is to contribute to the fight against antibiotic resistance, a growing public health concern.</p>
+        </div>
+    </section>
+    <section class="what_we_do">
+        <div class="title">
+            <h2>What we Do</h2>
+        </div>
+        <div class="box">
+            <div class="card">
+                <i class="fa fa-book"></i>
+                <h2>Educate</h2>
+                <div class="pra"><p>Offer guidelines and insights about when and how to use antibiotics responsibly.</p></div>
+            </div>
+            <div class="card">
+                <i class="fa fa-medkit"></i>
+                <h2>Inform</h2>
+                <div class="pra"><p>Provide up-to-date information on antibiotic types, their uses, and the risks associated with misuse.</p></div>
+            </div>
+            <div class="card">
+                <i class="fa fa-handshake-o"></i>
+                <h2>Assist</h2>
+                <div class="pra"><p>Answer specific questions and concerns about antibiotic usage through our interactive chatbot</p></div>
+            </div>
+            <div class="card">
+                <i class="fa fa-comments"></i>
+                <h2>Recommend</h2>
+                <div class="pra"><p>Suggest nearby locations for responsible antibiotic procurement and disposal.</p></div> 
+            </div>
+        </div>
+    </section>
+
+    <section class="try_chat_bot">
+        <h4> Click below to try our chatbot!</h3>
+            <a href="" class="hero-btn"><span>TRY OUR CHATBOT!</span></a>
+    </section>
+
+<!----Footer---->
+<footer>
+    <div class="left-image">
+        <a href="index.html"><img src="/img/logo.png" alt="Left Image"></a>
+    </div>
+    <ul class="menu">
+        <li><a href="index.html">HOME</a></li>
+        <li><a href="#">CHAT BOT</a></li>
+        <li><a href="#">DISPOSE</a></li>
+        <li><a href="#">UI</a></li>
+        <li><a href="about.html">ABOUT US</a></li>
+    </ul>
+    <ul class="social-icon"> 
+        <li><a href=""><i class="fa fa-facebook-square"></i></a></li>
+        <li><a href=""><i class="fa fa-instagram"></i></a></li>
+        <li><a href=""><i class="fa fa-linkedin-square"></i></a></li>
+        <li><a href=""><i class="fa fa-envelope"></i></a></li>
+    </ul>
+    <div class="right-image">
+        <a href="https://www.um.edu.mt/ict/ai/" target="_blank"><img src="/img/other/uom.png" alt="Right Image" ></a>
+    </div>
+    <p>©2023 MedEdMate | All Rights Reserved</p>
+</footer>
+
+<!--------JavaScript for Toggle Menu-------->
+<script>
+    var navLinks = document.getElementById("navLinks");
+
+    function showMenu(){
+        navLinks.style.right = "0";
+    }
+    function hideMenu(){
+        navLinks.style.right = "-270px"; 
+    }
+</script>
+  
+</body>
+</html>
