@@ -6,6 +6,8 @@
     <title>MedEdMate Website</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"></head>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
 <body class="background_about_us">
     <section class="header">
         <nav>
@@ -47,10 +49,30 @@
             </div>
             <div class="chat-input">
             <input type="text" id="userInput" placeholder="Type a message...">
-            <button id="sendButton">Send</button>
-            </div>
+            <button id="sendButton" class="hero-btn"><span>Send</span></button>
+        </div>
         </div>
     </section>
+
+    <!--------Dispose Part-------->
+
+    <section class="dispose">
+        <h1>Find a Disposal Location Near You</h1>
+        <h4>1. Enter your zip code or city in the search bar.</h4>
+        <h4>2. Click on the "Find Location" button. </h4>
+        <h4>3. Browse the map to see the closest disposal centers.</h4>
+        
+        <div id="map-search">
+            <div class="input-wrapper">
+                <input type="text" id="location-input" placeholder="Enter Zip Code or City">
+                <button id="find-button" class="hero-btn"><span>Find Location</span></button>
+            </div>
+        </div>
+        
+        <div id="map-container">
+            <!-- Map will go here -->
+        </div>
+    </section>    
 
     <!----Footer---->
     <footer>
@@ -87,6 +109,5 @@
             navLinks.style.right = "-270px"; 
         }
     </script>
-
 </body>
 </html>
