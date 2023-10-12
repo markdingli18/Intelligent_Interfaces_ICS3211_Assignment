@@ -127,7 +127,14 @@
 .try_chat_bot a{
     margin-bottom: 80px;
 }
-
+.who_we_are:hover, .our_mission:hover {
+    background-color: rgba(1, 25, 69, 0.622);
+    transition: background-color 0.75s ease-in-out;
+}
+.card:hover {
+    transform: scale(1.05);
+    transition: transform 0.5s ease-in-out;
+}
 /* Media Query */
 @media(max-width: 700px){
     nav img{
