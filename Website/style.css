@@ -300,23 +300,19 @@ nav .fa{
     width: 100%;
     text-align: center;
 }
-
 .dispose h1 {
     color: #fff;
     font-size: 40px;
 }
-
 .dispose h4 {
     color: #fff;
     margin-top: 20px;
     font-size: 18px;
 }
-
 #map-search {
     margin: 40px auto;
     width: 50%; 
 }
-
 .input-wrapper {
     display: flex;
     align-items: center;
@@ -325,11 +321,9 @@ nav .fa{
     transition: border-color 0.3s ease;
     background-color: rgba(1, 25, 69, 1);
 }
-
 .input-wrapper:hover, .input-wrapper:focus-within {
     border-color: rgba(1, 25, 69, 1);
 }
-
 #location-input {
     flex-grow: 1;
     padding: 12px 25px;  
@@ -340,11 +334,9 @@ nav .fa{
     background-color: rgba(1, 25, 69, 1); 
     color: #fff;  
 }
-
 #location-input::placeholder {
     color: #aaa;
 }
-
 #find-button {
     border-radius: 50px;
     margin: 10px 5px 10px -10px;  
@@ -358,6 +350,39 @@ nav .fa{
     border: 2px solid #ccc;
     border-radius: 15px;
     margin-bottom: 100px;
+}
+
+/*----- To-top-Button ----*/
+.to-top{
+    background: rgba(1, 25, 69, 1);
+    position: fixed;
+    bottom: 16px;
+    right: 32px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 32px;
+    color: #ffffff;
+    opacity: 0;
+    text-decoration: none;
+    pointer-events: none;
+    transition: all .4s;
+}
+.to-top i{
+    margin-bottom: 5px;
+}
+.to-top.active{
+    bottom: 32px;
+    pointer-events: auto;
+    opacity: 1;
+}
+.to-top.active:hover {
+    background: rgba(1, 50, 100, 1);  
+    color: #ffffff;  
+    transform: scale(1.1);
 }
 
 /*----Footer----*/
@@ -458,5 +483,122 @@ p {
     }
     .hero-btn {
         margin-top: -25px;
+    }
+
+    /* Chat Bot Section */
+    .chat_bot_master {
+        padding: 15px;
+    }
+    .chatbot {
+        width: 100%; 
+        box-shadow: none; 
+        margin-top: 30px;  
+        margin-bottom: 30px;
+    }
+    .chat-header {
+        font-size: 20px; 
+    }
+    .chatbot .chatbox {
+        height: 70vh;  
+        padding: 15px 10px 15px; 
+    }
+    .chatbox .chat p {
+        max-width: 90%; 
+        font-size: 0.85rem; 
+    }
+    .chat-input {
+        position: absolute;
+        bottom: 0;
+        padding-bottom: 10px;  
+    }
+    .chat-input textarea {
+        height: auto; 
+        width: 72%; 
+        font-size: 0.85rem;
+    }
+    .chat-input span {
+        font-size: 1rem;
+        line-height: 35px;
+        height: 35px;
+        position: absolute;  
+        right: 28px;  
+        bottom: 30px;  
+    }
+    .chat-send-btn .icon {
+        color: #0b3a7b !important; 
+    }
+    .chat-send-btn:hover {
+        transition: none;  
+        transform: none;  
+        background: transparent;  
+    }
+    .chat-send-btn::before,
+    .chat-send-btn::after {
+        display: none;  
+    }
+    .chat-send-btn .icon {
+        color: #0b3a7b;  
+    }
+
+    /* Map Section */
+    .dispose h1 {
+        font-size: 30px;  
+    }
+    .dispose h4 {
+        font-size: 14px;  
+    }
+    #map-search {
+        width: 90%;  
+        margin-left: auto; 
+        margin-right: auto;  
+    }
+    #location-input {
+        font-size: 14px;  
+        padding: 8px 15px;  
+    }
+    #find-button span {
+        font-size: 14px;  
+    }
+
+    /* Rules for the footer */
+    footer {
+        flex-direction: column;
+        align-items: center;
+    }
+    .left-image, .right-image {
+        display: none;  
+    }
+    .social-icon, .menu {
+        flex-direction: column;
+        margin-bottom: 10px;  
+    }
+    .menu li:nth-child(1), .menu li:nth-child(2) {
+        order: 1;
+    }
+    .menu li:nth-child(3), .menu li:nth-child(4), .menu li:nth-child(5) {
+        order: 2;
+    }
+    .menu {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .social-icon a, .menu a {
+        margin: 5px 0;
+    }
+    .social-icon i {
+        margin: 0 5px; 
+    }
+    .social-icon {
+        flex-direction: row; 
+        justify-content: center;
+        margin-bottom: 10px;  
+    }
+    p {
+        font-size: 14px;
+    }
+
+    .to-top {
+        display: none;
     }
 }

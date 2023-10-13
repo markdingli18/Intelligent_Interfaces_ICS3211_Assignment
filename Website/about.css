@@ -137,6 +137,11 @@
 }
 /* Media Query */
 @media(max-width: 700px){
+
+    .sub-header h1{
+        margin-top: 60px;
+        font-size: 42px;
+    }
     nav img{
         width: 150px;
     }
@@ -175,5 +180,48 @@
     }
     .hero-btn {
         margin-top: -25px;
+    }
+    .info h1 {
+        font-size: 24px; 
+    }
+    .info p {
+        font-size: 18px;  
+    }
+    .our_mission, .who_we_are {
+        width: 70%;  
+        margin-left: auto;  
+        margin-right: auto;
+        height: auto;  
+        padding-bottom: 20px; 
+    }
+    .what_we_do .title h2 {
+        font-size: 30px; 
+        align-items: center; 
+        width: auto;
+    }
+    .box {
+        flex-direction: column;  
+        align-items: center;  
+    }
+    .card {
+        width: 50%;  
+        margin: 10px 0;  
+    }
+    .card h2, .card .pra p {
+        font-size: 18px;  
+    }
+    .try_chat_bot h4 {
+        font-size: 24px;  
+        margin-bottom: 50px;  
+    }
+    .try_chat_bot .hero-btn span {
+        font-size: 14px;  
+        padding: 10px 20px;  
+    }
+    .try_chat_bot {
+        margin-top: 20px;  
+    }
+    .to-top {
+        display: none;
     }
 }
