@@ -25,35 +25,111 @@ nav a img:hover {
     transform: scale(1.1);
     transition: transform 0.3s ease-in-out;
 }
-.nav-links{
+.nav-links {
     flex: 1;
     text-align: right;
     padding-right: 70px;
 }
-.nav-links ul li{
+.nav-links ul li {
     list-style: none;
     display: inline-block;
     padding: 8px 12px;
     position: relative;
 }
-.nav-links ul li a{
+.nav-links ul li a {
     color: white;
     text-decoration: none;
-    font-size: 20px;
+    font-size: 22px; 
+    font-weight: bold; 
 }
-.nav-links ul li::after{
+.nav-links ul li::after {
     content: '';
-    width: 0%;
+    width: 100%;
     height: 3px;
     background: #ff0000;
     display: block;
     margin: auto;
-    margin-top: 3px;
-    transition: 0.8s;
+    transition: transform 0.5s ease, opacity 0.5s ease; 
+    transform: scaleX(0); 
+    opacity: 0; 
 }
-.nav-links ul li:hover::after{
-    width: 100%;
+.nav-links ul li:hover::after {
+    transform: scaleX(1); 
+    opacity: 1; 
 }
+
+/* theme slider */
+.nav-links .theme-slider {
+    position: relative;
+    top: -10px; 
+    margin-left: 10px; 
+
+  }
+.nav-links ul li:hover::after {
+    transform: scaleX(1.1); 
+    opacity: 0.7; 
+}
+.nav-links ul li.theme-slider input:checked + .slider::after {
+    display: none;
+}
+  .nav-links ul li.theme-slider::after {
+    display: none;
+}
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+  }  
+  .switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #9d9d9d;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  .nav-links .switch input:checked + .slider {
+    background-color: #ff0000 !important;
+  }
+  .nav-links .switch input:focus + .slider {
+    box-shadow: 0 0 1px #ff0000 !important;
+  }
+  input:checked + .slider:before {
+    transform: translateX(25px); 
+    bottom: 4px;
+    left: 4px;
+  }
+  .slider.round {
+    border-radius: 34px;
+  }
+  .slider.round:before {
+    border-radius: 50%;
+  }  
+  .theme-slider:hover::after,
+  .theme-slider:active::after {
+      content: none; 
+  }
+
 .text-box{
     width: 90%;
     color: white;

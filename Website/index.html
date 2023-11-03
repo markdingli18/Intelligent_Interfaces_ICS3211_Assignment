@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MedEdMate Website</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/x-icon" href="img\740pill_100923.ico">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"></head>
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -18,10 +19,17 @@
                 <i class="fa fa-times" onclick="hideMenu()"></i>
                 <ul>
                     <li><a href="index.html">HOME</a></li>
-                    <li><a href="#chat_bot_section">CHAT BOT</a></li>
-                    <li><a href="#dispose_section">DISPOSE</a></li>
-                    <li><a href="#">UI</a></li>
+                    <!-- <li><a href="#chat_bot_section">CHAT BOT</a></li>
+                    <li><a href="#dispose_section">DISPOSE</a></li> -->
+                    <li><a href="faq.html">FAQs</a></li>
                     <li><a href="about.html">ABOUT US</a></li>
+                    <!-- Slider Toggle Button -->
+                    <li class="theme-slider">
+                        <label class="switch">
+                          <input type="checkbox" id="theme-slider-checkbox">
+                          <span class="slider round"></span>
+                        </label>
+                    </li>
                 </ul>
             </div>
             <i class="fa fa-bars" onclick="showMenu()"></i>
@@ -131,5 +139,12 @@
             }
         });
     </script>  
+
+    <!--------JavaScript for Slider Button-------->
+    <script>
+        document.getElementById('theme-slider-checkbox').addEventListener('change', function() {
+            window.location.href = this.checked ? 'simple_ui.html' : 'index.html';
+        });
+    </script>
 </body>
 </html>
