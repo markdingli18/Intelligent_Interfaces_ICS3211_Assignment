@@ -234,6 +234,14 @@ html {
   font-size: 1.4em;
 }
 
+/*JavaScript Classes*/
+.vanish {
+  display: none;
+}
+
+
+/*Media Queries*/
+
 @media (max-width: 1080px) {
   .FAQCard {
     margin: 30px 30px;
