@@ -6,6 +6,7 @@
     list-style: none;
     scroll-behavior: smooth;
 }
+
 .background_about_us{
     background-image: linear-gradient(rgba(4, 9, 30, 0.622),rgba(4, 9, 30, 0.622)),url("/img/background5.jpg");
     background-repeat: no-repeat;
