@@ -12,7 +12,6 @@ var currentSelected = null;
 
 // Add an event listener to the button
 youngButton.addEventListener('click', () => {
-    console.log('Button clicked');
     // Add the class to the element
     youngSection.classList.remove('vanish');
     if (currentSelected != null && currentSelected != youngSection) {
@@ -30,7 +29,7 @@ adultButton.addEventListener('click', () => {
     if (currentSelected != null && currentSelected != adultSection) {
         currentSelected.classList.add('vanish');
     }
-    currentSelected = youngSection;
+    currentSelected = adultSection;
     currentSelected.scrollIntoView();
 });
 
@@ -40,6 +39,6 @@ elderButton.addEventListener('click', () => {
     if (currentSelected != null && currentSelected != elderSection) {
         currentSelected.classList.add('vanish');
     }
-    currentSelected = youngSection;
+    currentSelected = elderSection;
     currentSelected.scrollIntoView();
 });

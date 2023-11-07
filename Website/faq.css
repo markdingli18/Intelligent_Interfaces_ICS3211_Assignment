@@ -152,16 +152,22 @@ html {
   justify-content: center;
   align-items: flex-start;
   position: relative;
-  width: 320px;
-  height: 400px;
+  width: 336px;
+  height: 420px;
   margin: 5px 30px;
   border-radius: 20px;
+  padding-top: 20px;
   border-bottom-left-radius: 160px;
   border-bottom-right-radius: 160px;
   box-shadow: 0 15px 0 #fff,
     inset 0 -15px 0 rgba(255, 255, 255, 0.24),
     0 45px 0 rgba(0, 0, 0, 0.15);
   overflow: hidden;
+  transition: 0.5s;
+}
+
+.FAQCard:hover {
+  transform: translateY(-2%);
 }
 
 .FAQCard::before {
@@ -234,11 +240,49 @@ html {
   font-size: 1.4em;
 }
 
+.flexReq {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 40px;
+}
+
+.youngIconContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50px;
+}
+
+.youngRobotImage {
+  height: 50px;
+  width: auto;
+  cursor: pointer;
+  content: "";
+  animation: bob 3s infinite;
+}
+
+/*Animate Young Robot to bob up and down */
+@keyframes bob {
+  0% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+}
+
+
 /*JavaScript Classes*/
 .vanish {
   display: none;
 }
-
 
 /*Media Queries*/
 
