@@ -1,4 +1,3 @@
-
 // Get the button elements by its id for young
 const youngCard1 = document.getElementById('youngCard1');
 const youngCard2 = document.getElementById('youngCard2');
@@ -22,15 +21,15 @@ const adultCard8 = document.getElementById('adultCard8');
 const adultCard9 = document.getElementById('adultCard9');
 
 // Get the button elements for elderly
-const elderCard1 = document.getElementById('elderlyCard1');
-const elderCard2 = document.getElementById('elderlyCard2');
-const elderCard3 = document.getElementById('elderlyCard3');
-const elderCard4 = document.getElementById('elderlyCard4');
-const elderCard5 = document.getElementById('elderlyCard5');
-const elderCard6 = document.getElementById('elderlyCard6');
-const elderCard7 = document.getElementById('elderlyCard7');
-const elderCard8 = document.getElementById('elderlyCard8');
-const elderCard9 = document.getElementById('elderlyCard9');
+const elderCard1 = document.getElementById('elderCard1');
+const elderCard2 = document.getElementById('elderCard2');
+const elderCard3 = document.getElementById('elderCard3');
+const elderCard4 = document.getElementById('elderCard4');
+const elderCard5 = document.getElementById('elderCard5');
+const elderCard6 = document.getElementById('elderCard6');
+const elderCard7 = document.getElementById('elderCard7');
+const elderCard8 = document.getElementById('elderCard8');
+const elderCard9 = document.getElementById('elderCard9');
 
 const youngText1 = 'I am button 1';
 const youngText2 = 'I am button 2';
