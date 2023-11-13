@@ -81,7 +81,84 @@
         </div>
         
         <div id="map-container">
-            <!-- Map will go here -->
+            <script async src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDWj-SHQnt36YU6Wf_KhYQdqzm2v7YuIVM&libraries=places,marker&callback=makeMap&v=beta&"></script>
+            
+            <script>
+                var map
+                var service
+
+                function makeMap(){
+                    var currentLocation = {lat: 0,lng: 0}
+
+                    if(navigator.geolocation){
+                        navigator.geolocation.getCurrentPosition((loc) => {
+                            currentLocation.lat = loc.coords.latitude;
+                            currentLocation.lng = loc.coords.longitude;
+
+                            map = new google.maps.Map(document.getElementById("map-container"), {
+                                mapId: "eb7aae83c639ac98",
+                                center: currentLocation, 
+                                zoom: 13
+                            })
+
+                            currentMarker = new google.maps.Marker({
+                                map: map,
+                                position: currentLocation,
+                                title: "Current Location",
+                                // icon: image // We can add an image here instead of marker
+                            });
+
+
+                            var request1 = {
+                                type: "pharmacy",
+                                location: currentLocation,
+                                radius: 1000
+                            };
+                        
+                            var service = new google.maps.places.PlacesService(map);
+                            service.nearbySearch(request1, callback1);
+
+
+                            var request2 = {
+                                type: "doctor",
+                                location: currentLocation,
+                                radius: 1000
+                            };
+                        
+                            var service = new google.maps.places.PlacesService(map);
+                            service.nearbySearch(request2, callback2);
+                        })
+                    }
+                }
+
+                function callback1(results) {
+                    for (var i = 0; i < results.length; i++) {
+                        if (i<5){
+                            var place = results[i];
+                            new google.maps.Marker({
+                                map: map,
+                                position:place.geometry.location,
+                                title: "Pharmacy: " + (place.name),
+                                // icon: image // We can add an image here instead of marker
+                            })
+                        }
+                    }
+                }
+
+                function callback2(results) {
+                    for (var i = 0; i < results.length; i++) {
+                        if (i<5){
+                            var place = results[i];
+                            new google.maps.Marker({
+                                map: map,
+                                position:place.geometry.location,
+                                title: "Doctor: " + (place.name),
+                                // icon: image // We can add an image here instead of marker
+                            })
+                        }
+                    }
+                }
+            </script>
         </div>
     </section>  
     
