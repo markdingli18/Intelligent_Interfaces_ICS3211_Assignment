@@ -180,6 +180,7 @@ function slideInImageAndDisplayText(textToDisplay) {
     img.style.bottom = '0';
     img.style.left = '-400px';
     img.style.width = ' 573px';
+    img.style.zIndex = '1000';
     img.style.height = '400px';
     img.style.transition = 'all 1s ease-in-out';
 
@@ -198,6 +199,7 @@ function slideInImageAndDisplayText(textToDisplay) {
         textBox.style.height = '100px';
         textBox.style.backgroundColor = 'rgba(255, 255, 255, 0.95)';
         textBox.style.border = '1px solid black';
+        textBox.style.zIndex = '1000';
         textBox.style.padding = '10px';
         //Change the border of the text box to aappear like a text message
         textBox.style.borderRadius = '10px';
@@ -220,6 +222,7 @@ function slideInImageAndDisplayText(textToDisplay) {
         closeIcon.style.height = '20px';
         closeIcon.style.cursor = 'pointer';
         closeIcon.style.transition = 'all 1s ease-in-out';
+        closeIcon.style.zIndex = '1001';
         document.body.appendChild(closeIcon);
     }, 2000);
 
