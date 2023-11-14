@@ -1,0 +1,396 @@
+/* Cards CSS */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  box-sizing: border-box;
+  font-size: 62.5%;
+}
+
+@media (max-width: 60em) {
+  body {
+    padding: 3rem;
+  }
+}
+
+.ageCardContent {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.background_about_us2 {
+  min-height: 100vh;
+  width: 100%;
+  background-image: linear-gradient(rgba(4, 9, 30, 0.6), rgba(4, 9, 30, 0.6)), url("/img/background7.jpg");
+  position: relative;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
+}
+
+.grid {
+  display: grid;
+  justify-content: center;
+  width: 75vw;
+  grid-gap: 20px;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+@media (max-width: 60em) {
+  .grid {
+    grid-gap: 3rem;
+  }
+}
+
+.gridItem {
+  background-color: #fff;
+  border-radius: 0.4rem;
+  overflow: hidden;
+  box-shadow: 0 3rem 6rem rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: 0.2s;
+  display: flex;
+  flex-direction: column;
+
+}
+
+.gridItem:hover {
+  transform: translateY(-0.5%);
+  box-shadow: 0 4rem 8rem rgba(0, 0, 0, 0.2);
+  cursor: default;
+}
+
+.cardImg {
+  display: block;
+  width: 100%;
+  height: 20rem;
+  object-fit: cover;
+}
+
+.cardContent {
+  padding: 3rem 3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: space-evenly;
+}
+
+.cardHeader {
+  font-size: 3rem;
+  font-weight: 500;
+  color: #0d0d0d;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.cardText {
+  font-size: 1.5rem;
+  letter-spacing: 0.1rem;
+  line-height: 1.7;
+  color: #3d3d3d;
+  margin-bottom: 2.5rem;
+}
+
+.cardButton {
+  display: inline-block;
+  text-decoration: none;
+  color: #3363ff;
+  border: 2px solid #3363ff;
+  padding: 15px 40px;
+  font-size: 18px;
+  font-weight: bold;
+  background: transparent;
+  position: relative;
+  cursor: pointer;
+  border-radius: 50px;
+  overflow: hidden;
+  transition: 0.6s ease-in-out;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 2em;
+}
+
+.cardButton::before,
+.cardButton::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  width: 50%;
+  height: 100%;
+  transition: 0.6s ease-in-out;
+  z-index: 1;
+}
+
+.cardButton::before {
+  left: -50%;
+  background: #0b3a7b;
+  border-radius: 50px 0 0 50px;
+}
+
+.cardButton::after {
+  right: -50%;
+  background: #ff0000;
+  border-radius: 0 50px 50px 0;
+}
+
+.cardButton:hover::before {
+  left: 0;
+  color: white;
+}
+
+.cardButton:hover::after {
+  right: 0;
+  color: white;
+}
+
+.cardButton span {
+  margin-left: 1rem;
+  transition: 0.2s;
+}
+
+.cardButton:hover,
+.cardButton:active {
+  background-color: #dce4ff;
+  color: white;
+  border-color: transparent;
+}
+
+/* Keyframe animation for flickering effect */
+@keyframes flickerBorder {
+
+  30%,
+  100% {
+    border-color: #ff0000;
+    /* Visible */
+    color: #ff0000;
+    /* Visible */
+  }
+
+  50% {
+    border-color: transparent;
+    /* Invisible */
+    color: transparent;
+    /* Invisible */
+  }
+}
+
+.cardButton:focus {
+  border-color: #ff0000;
+  outline: none;
+  color: #ff0000;
+  animation: flickerBorder 1.2s linear infinite;
+}
+
+.faqHeader {
+  font-size: 50px;
+  margin-top: -40px;
+  margin-bottom: 10px;
+  color: #fff;
+  text-align: center;
+}
+
+.faqSubHeader {
+  font-size: 20px;
+  font-style: italic;
+  font-weight: lighter;
+  margin-bottom: 30px;
+  color: #fff;
+  text-align: center;
+}
+
+#defaultSelection {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 40px 0;
+  height: 420px;
+}
+
+
+/*Child Cards CSS*/
+.MedicalFAQContainer {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 40px;
+  /* background: #3c2846; */
+}
+
+.FAQCard {
+  background: #287bff;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  position: relative;
+  width: 336px;
+  height: 420px;
+  margin: 5px 30px;
+  border-radius: 20px;
+  padding-top: 20px;
+  border-bottom-left-radius: 160px;
+  border-bottom-right-radius: 160px;
+  box-shadow: 0 15px 0 #fff,
+    inset 0 -15px 0 rgba(255, 255, 255, 0.24),
+    0 45px 0 rgba(0, 0, 0, 0.15);
+  overflow: hidden;
+  transition: 0.5s;
+}
+
+.FAQCard:hover {
+  transform: translateY(-2%);
+}
+
+.FAQCard::before {
+  content: "";
+  position: absolute;
+  top: -140px;
+  left: -40%;
+  padding: 0;
+  width: 100%;
+  height: 120%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2));
+  transform: rotate(35deg);
+  pointer-events: none;
+  filter: blur(5px);
+}
+
+.FAQCard:nth-child(1) {
+  background: linear-gradient(to bottom, #ff2ae0, #645bf6);
+}
+
+.FAQCard:nth-child(2) {
+  background: linear-gradient(to bottom, #ffec61, #f321d7);
+}
+
+.FAQCard:nth-child(3) {
+  background: linear-gradient(to bottom, #24ff72, #9a4eff);
+}
+
+.FAQCard .icon {
+  position: relative;
+  width: 140px;
+  height: 120px;
+  background: var(--icon-backgroundcolor);
+  border-bottom-left-radius: 100px;
+  border-bottom-right-radius: 100px;
+  box-shadow: 0 15px 0 rgba(0, 0, 0, 0.1),
+    inset 0 -8px 0 #fff;
+  z-index: 100;
+  display: flex;
+  font-size: 1.5em;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.FAQCard .icon ion-icon {
+  color: #fff;
+  position: relative;
+  font-size: 6em;
+  z-index: 100;
+  --ionicon-stroke-width: 24px;
+}
+
+.FAQCard .content {
+  position: absolute;
+  width: 100%;
+  padding: 30px;
+  padding-top: 150px;
+  text-align: center;
+}
+
+.FAQCard .content h2 {
+  font-size: 2.5em;
+  color: #fff;
+  margin-bottom: 15px;
+}
+
+.FAQCard .content p {
+  color: #fff;
+  line-height: 1.5em;
+  font-size: 1.4em;
+}
+
+.flexReq {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 40px;
+}
+
+.youngIconContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50px;
+}
+
+.youngRobotImage {
+  height: 50px;
+  width: auto;
+  cursor: pointer;
+  content: "";
+  animation: bob 3s infinite;
+}
+
+/*Animate Young Robot to bob up and down */
+@keyframes bob {
+  0% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+}
+
+
+/*JavaScript Classes*/
+.vanish {
+  display: none;
+}
+
+/*Media Queries*/
+
+@media (max-width: 1080px) {
+  .FAQCard {
+    margin: 30px 30px;
+    width: 200px;
+    height: 280px;
+  }
+
+  .FAQCard .icon {
+    width: 100px;
+    height: 80px;
+    font-size: 1em;
+  }
+
+  .FAQCard .content {
+    position: absolute;
+    padding: 5px;
+    padding-top: 100px;
+  }
+
+  .FAQCard .content h2 {
+    font-size: 2em;
+  }
+
+  .FAQCard .content p {
+    font-size: 0.8em;
+
+  }
+}
