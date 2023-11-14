@@ -40,9 +40,8 @@ html {
   justify-content: center;
   align-content: center;
   width: 75vw;
-  grid-gap: 20px;
+  grid-gap: 3rem;
   grid-template-columns: repeat(3, 1fr);
-  align-items: stretch;
 }
 
 @media (max-width: 60em) {
@@ -58,6 +57,8 @@ html {
   box-shadow: 0 3rem 6rem rgba(0, 0, 0, 0.1);
   cursor: pointer;
   transition: 0.2s;
+  display: flex;
+  flex-direction: column;
 }
 
 .gridItem:hover {
@@ -73,6 +74,10 @@ html {
 }
 
 .cardContent {
+  display: flex;
+  flex-direction: column;
+  justify-items: center;
+  align-items: center;
   padding: 3rem 3rem;
 }
 
@@ -110,6 +115,7 @@ html {
   display: flex;
   justify-content: center;
   align-items: center;
+  align-self: flex-end;
 }
 
 .cardButton::before,
@@ -150,11 +156,8 @@ html {
   transition: 0.2s;
 }
 
-.cardButton:hover,
-.cardButton:active {
-  background-color: #dce4ff;
-  color: white;
-  border-color: transparent;
+.flickerBorder {
+  animation: flickerBorder 1s infinite;
 }
 
 /* Keyframe animation for flickering effect */
@@ -181,6 +184,17 @@ html {
   outline: none;
   color: #ff0000;
   animation: flickerBorder 1.2s linear infinite;
+}
+
+.cardButton span {
+  z-index: 1000;
+}
+
+.cardButton:hover,
+.cardButton:active {
+  background-color: #dce4ff;
+  color: white !important;
+  border-color: transparent;
 }
 
 .faqHeader {
