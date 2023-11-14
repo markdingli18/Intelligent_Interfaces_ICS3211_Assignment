@@ -149,7 +149,9 @@ elderCard9.addEventListener('click', () => {
     slideInImageAndDisplayText(elderText9);
 });
 
-
+let img = null;
+let textBox = null;
+let closeIcon = null;
 
 //Function to type out the text in the text box
 function typeWriter(textToDisplay, textElement, speed, i) {
@@ -160,19 +162,117 @@ function typeWriter(textToDisplay, textElement, speed, i) {
     }
 }
 
+function clearBotElements() {
+    if (img != null) {
+        img.remove();
+    }
+    if (textBox != null) {
+        textBox.remove();
+    }
+    if (closeIcon != null) {
+        closeIcon.remove();
+    }
+}
+
+const timeoutDictionary = {
+    "removingImage": null,
+    "timeoutSlideImage": null,
+    "popTextBox": null,
+    "removeTextBox": null
+};
+
+function RemoveImage() {
+    img.remove();
+    timeoutDictionary["removingImage"] = null;
+}
+
+function slideImage() {
+    img.style.left = '-100px';
+    timeoutDictionary["timeoutSlideImage"] = null;
+}
+
+function popTextBox(textToDisplay) {
+    img.src = 'img/robot_normal.png';
+    textBox.style.position = 'fixed';
+    textBox.style.left = '420px';
+    textBox.style.bottom = '320px';
+    textBox.style.width = '400px';
+    textBox.style.height = '100px';
+    textBox.style.backgroundColor = 'rgba(255, 255, 255, 0.95)';
+    textBox.style.border = '1px solid black';
+    textBox.style.zIndex = '1000';
+    textBox.style.padding = '10px';
+    //Change the border of the text box to aappear like a text message
+    textBox.style.borderRadius = '10px';
+    //Add a shadow to the text box
+    textBox.style.boxShadow = '0 0 10px rgba(0, 0, 0, 0.5)';
+    //Add a piece sticking out of the text box like a text message
+    textBox.style.borderBottomLeftRadius = '0px';
+    document.body.appendChild(textBox);
+
+    //Add the text to the text box using typewriter effect
+    typeWriter(textToDisplay, textBox, 50, 0)
+
+    //Add a X icon to the text box to clsoe the text box
+    closeIcon.src = 'img/CloseIcon.png';
+    closeIcon.style.position = 'fixed';
+    closeIcon.style.left = '793px';
+    closeIcon.style.bottom = '395px';
+    closeIcon.style.width = '20px';
+    closeIcon.style.height = '20px';
+    closeIcon.style.cursor = 'pointer';
+    closeIcon.style.transition = 'all 1s ease-in-out';
+    closeIcon.style.zIndex = '1001';
+    document.body.appendChild(closeIcon);
+    timeoutDictionary["popTextBox"] = null;
+}
+
+function removeTextBox() {
+    //Slide the image out to the left
+    img.style.left = '-1000px';
+    textBox.remove();
+    closeIcon.remove();
+    const timeoutRemoveImage = setTimeout(RemoveImage, 1000);
+    timeoutDictionary["removingImage"] = timeoutRemoveImage;
+    timeoutDictionary["removeTextBox"] = null;
+}
+
+function clearTimeouts() {
+    console.log("Clearing timeout");
+    console.log(timeoutDictionary);
+    if (timeoutDictionary["removingImage"] != null) {
+        clearTimeout(timeoutDictionary["removingImage"]);
+    }
+    if (timeoutDictionary["timeoutSlideImage"] != null) {
+        clearTimeout(timeoutDictionary["timeoutSlideImage"]);
+    }
+    if (timeoutDictionary["popTextBox"] != null) {
+        clearTimeout(timeoutDictionary["popTextBox"]);
+    }
+    if (timeoutDictionary["removeTextBox"] != null) {
+        clearTimeout(timeoutDictionary["removeTextBox"]);
+    }
+}
+//LIST OF TIMOUTS 
+
+//Breaking Down One Huge Function into smaller functions that can be called
 function slideInImageAndDisplayText(textToDisplay) {
-    const img = document.createElement('img');
-    const textBox = document.createElement('div');
-    const closeIcon = document.createElement('img');
+
+    clearTimeouts();
+    clearBotElements();
+
+    img = document.createElement('img');
+    textBox = document.createElement('div');
+    closeIcon = document.createElement('img');
+
     closeIcon.addEventListener('click', () => {
         //Slide the image out to the left
         img.style.left = '-1000px';
         textBox.remove();
         closeIcon.remove();
-        //Remove after one second
-        setTimeout(() => {
-            img.remove();
-        }, 1000);
+        timeoutDictionary["removingImage"] = true;
+        const timeoutRemoveImage = setTimeout(RemoveImage, 1000);
+        timeoutDictionary["removingImage"] = timeoutRemoveImage;
     });
 
     img.src = 'img/robot_thinking.png';
@@ -186,55 +286,12 @@ function slideInImageAndDisplayText(textToDisplay) {
 
     //Make image slide in from the left
     document.body.appendChild(img);
-    setTimeout(() => {
-        img.style.left = '-100px';
-    }, 100);
+    const timeoutSlideImage = setTimeout(slideImage, 1);
+    timeoutDictionary["timeoutSlideImage"] = timeoutSlideImage;
 
-    setTimeout(() => {
-        img.src = 'img/robot_normal.png';
-        textBox.style.position = 'fixed';
-        textBox.style.left = '420px';
-        textBox.style.bottom = '320px';
-        textBox.style.width = '400px';
-        textBox.style.height = '100px';
-        textBox.style.backgroundColor = 'rgba(255, 255, 255, 0.95)';
-        textBox.style.border = '1px solid black';
-        textBox.style.zIndex = '1000';
-        textBox.style.padding = '10px';
-        //Change the border of the text box to aappear like a text message
-        textBox.style.borderRadius = '10px';
-        //Add a shadow to the text box
-        textBox.style.boxShadow = '0 0 10px rgba(0, 0, 0, 0.5)';
-        //Add a piece sticking out of the text box like a text message
-        textBox.style.borderBottomLeftRadius = '0px';
-        document.body.appendChild(textBox);
+    const timeoutPopTextBox = setTimeout(() => popTextBox(textToDisplay), 2000);
+    timeoutDictionary["popTextBox"] = timeoutPopTextBox;
 
-        //Add the text to the text box using typewriter effect
-        console.log(textToDisplay);
-        typeWriter(textToDisplay, textBox, 50, 0)
-
-        //Add a X icon to the text box to clsoe the text box
-        closeIcon.src = 'img/CloseIcon.png';
-        closeIcon.style.position = 'fixed';
-        closeIcon.style.left = '793px';
-        closeIcon.style.bottom = '395px';
-        closeIcon.style.width = '20px';
-        closeIcon.style.height = '20px';
-        closeIcon.style.cursor = 'pointer';
-        closeIcon.style.transition = 'all 1s ease-in-out';
-        closeIcon.style.zIndex = '1001';
-        document.body.appendChild(closeIcon);
-    }, 2000);
-
-    //Remove the image and text after 15 seconds
-    setTimeout(() => {
-        //Slide the image out to the left
-        img.style.left = '-1000px';
-        textBox.remove();
-        closeIcon.remove();
-        //Remove after one second
-        setTimeout(() => {
-            img.remove();
-        }, 1000);
-    }, 15000);
+    const timeoutRemoveEverything = setTimeout(removeTextBox, 15000);
+    timeoutDictionary["removeTextBox"] = timeoutRemoveEverything;
 }
