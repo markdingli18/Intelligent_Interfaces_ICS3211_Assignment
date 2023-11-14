@@ -5,8 +5,8 @@
   margin: 0;
   padding: 0;
   box-sizing: inherit;
-
 }
+
 html {
   box-sizing: border-box;
   font-size: 62.5%;
@@ -24,10 +24,10 @@ html {
   align-items: center;
 }
 
-.background_about_us2{
+.background_about_us2 {
   min-height: 100vh;
   width: 100%;
-  background-image: linear-gradient(rgba(4, 9, 30, 0.6),rgba(4, 9, 30, 0.6)),url("/img/background7.jpg");
+  background-image: linear-gradient(rgba(4, 9, 30, 0.6), rgba(4, 9, 30, 0.6)), url("/img/background7.jpg");
   position: relative;
   background-repeat: no-repeat;
   background-attachment: fixed;
@@ -40,9 +40,8 @@ html {
   justify-content: center;
   align-content: center;
   width: 75vw;
-  grid-gap: 20px;
+  grid-gap: 3rem;
   grid-template-columns: repeat(3, 1fr);
-  align-items: stretch; 
 }
 
 @media (max-width: 60em) {
@@ -58,6 +57,8 @@ html {
   box-shadow: 0 3rem 6rem rgba(0, 0, 0, 0.1);
   cursor: pointer;
   transition: 0.2s;
+  display: flex;
+  flex-direction: column;
 }
 
 .gridItem:hover {
@@ -73,6 +74,10 @@ html {
 }
 
 .cardContent {
+  display: flex;
+  flex-direction: column;
+  justify-items: center;
+  align-items: center;
   padding: 3rem 3rem;
 }
 
@@ -95,10 +100,10 @@ html {
 .cardButton {
   display: inline-block;
   text-decoration: none;
-  color: #3363ff; 
+  color: #3363ff;
   border: 2px solid #3363ff;
-  padding: 15px 40px; 
-  font-size: 18px; 
+  padding: 15px 40px;
+  font-size: 18px;
   font-weight: bold;
   background: transparent;
   position: relative;
@@ -106,12 +111,15 @@ html {
   border-radius: 50px;
   overflow: hidden;
   transition: 0.6s ease-in-out;
-  margin: 0 auto; 
+  margin: 0 auto;
   display: flex;
   justify-content: center;
   align-items: center;
+  align-self: flex-end;
 }
-.cardButton::before, .cardButton::after {
+
+.cardButton::before,
+.cardButton::after {
   content: "";
   position: absolute;
   top: 0;
@@ -120,55 +128,79 @@ html {
   transition: 0.6s ease-in-out;
   z-index: 1;
 }
+
 .cardButton::before {
   left: -50%;
   background: #0b3a7b;
   border-radius: 50px 0 0 50px;
 }
+
 .cardButton::after {
   right: -50%;
   background: #ff0000;
   border-radius: 0 50px 50px 0;
 }
+
 .cardButton:hover::before {
   left: 0;
   color: white;
 }
+
 .cardButton:hover::after {
   right: 0;
   color: white;
 }
+
 .cardButton span {
-  position: relative;
-  z-index: 10;
+  margin-left: 1rem;
+  transition: 0.2s;
 }
-.cardButton:hover, .cardButton:active {
-  background-color: #dce4ff;
-  color: white; 
-  border-color: transparent;
+
+.flickerBorder {
+  animation: flickerBorder 1s infinite;
 }
+
 /* Keyframe animation for flickering effect */
 @keyframes flickerBorder {
-  30%, 100% { 
-    border-color: #ff0000; /* Visible */
-    color: #ff0000; /* Visible */
+
+  30%,
+  100% {
+    border-color: #ff0000;
+    /* Visible */
+    color: #ff0000;
+    /* Visible */
   }
-  50% { 
-    border-color: transparent; /* Invisible */
-    color: transparent; /* Invisible */
+
+  50% {
+    border-color: transparent;
+    /* Invisible */
+    color: transparent;
+    /* Invisible */
   }
 }
+
 .cardButton:focus {
-  border-color: #ff0000; 
-  outline: none; 
+  border-color: #ff0000;
+  outline: none;
   color: #ff0000;
   animation: flickerBorder 1.2s linear infinite;
 }
 
+.cardButton span {
+  z-index: 1000;
+}
+
+.cardButton:hover,
+.cardButton:active {
+  background-color: #dce4ff;
+  color: white !important;
+  border-color: transparent;
+}
+
 .faqHeader {
   font-size: 50px;
-  margin-top: 20px;
-  margin-bottom: 20px;
+  margin-top: -40px;
+  margin-bottom: 10px;
   color: #fff;
   text-align: center;
 }
@@ -177,7 +209,7 @@ html {
   font-size: 20px;
   font-style: italic;
   font-weight: lighter;
-  margin-bottom: 50px;
+  margin-bottom: 30px;
   color: #fff;
   text-align: center;
 }
@@ -188,8 +220,6 @@ html {
   align-items: center;
   margin: 40px 0;
   height: 420px;
-  padding-top: 50px;
-  margin-bottom: 80px;
 }
 
 
@@ -273,7 +303,7 @@ html {
   color: #fff;
   position: relative;
   font-size: 6em;
-  z-index: 1000;
+  z-index: 100;
   --ionicon-stroke-width: 24px;
 }
 
@@ -334,6 +364,7 @@ html {
     transform: translateY(0);
   }
 }
+
 
 /*JavaScript Classes*/
 .vanish {
