@@ -258,7 +258,17 @@
             function onUserRequest(message) {
                 // Display user message
                 const messageElement = document.createElement('div');
-                messageElement.innerHTML = ` ${message} `;
+                const replyElement = document.createElement('div');
+                const imageIcon = document.createElement('img');
+                imageIcon.src = "img/robot_thinking.png";
+                imageIcon.height = 50;
+                imageIcon.width = 70;
+
+                //Make the imageicon part of the reply element
+                replyElement.appendChild(imageIcon);
+                replyElement.classList.add('reply-message');
+
+                messageElement.innerText = ` ${message} `;
                 messageElement.classList.add('chat-message');
                 chatMessages.appendChild(messageElement);
                 chatMessages.scrollTop = chatMessages.scrollHeight;
@@ -299,17 +309,21 @@
                 })
                     .then(response => response.json())
                     .then(data => {
-                        reply(data['choices'][0]['message']['content'].replace('Customer support:', ''))
+
+                        reply(data['choices'][0]['message']['content'].replace('Customer support:', ''), replyElement)
+                        imageIcon.src = "img/robot_normal.png";
                     }) // Logs the response data from the API to the console
                     .catch(error => console.error('Error:', error));
-                reply("[answer here, no token yet]")
+                reply("[answer here, no token yet]", replyElement)
+                imageIcon.src = "img/robot_normal.png";
             }
 
-            function reply(message) {
+            function reply(message, replyElement) {
                 const chatMessages = document.getElementById('chatConversation');
-                const replyElement = document.createElement('div');
-                replyElement.innerHTML = ` ${message} `;
-                replyElement.classList.add('reply-message');
+                const textElement = document.createElement('span'); // Create a new div for text
+                textElement.innerText = ` ${message} `;
+                textElement.classList.add('reply-text');
+                replyElement.appendChild(textElement);
                 chatMessages.appendChild(replyElement);
                 chatMessages.scrollTop = chatMessages.scrollHeight;
             }
