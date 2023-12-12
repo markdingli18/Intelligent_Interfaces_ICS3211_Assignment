@@ -1,16 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MedEdMate Website</title>
     <link rel="stylesheet" href="style.css">
     <link rel="icon" type="image/x-icon" href="img\740pill_100923.ico">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"></head>
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@48,400,1,0" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+<link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@48,400,1,0" />
 
 
 
@@ -29,8 +33,8 @@
                     <!-- Slider Toggle Button -->
                     <li class="theme-slider">
                         <label class="switch">
-                          <input type="checkbox" id="theme-slider-checkbox">
-                          <span class="slider round"></span>
+                            <input type="checkbox" id="theme-slider-checkbox">
+                            <span class="slider round"></span>
                         </label>
                     </li>
                 </ul>
@@ -40,26 +44,30 @@
         <div class="text-box">
             <h1>Welcome to MedEdMate!</h1>
             <h3>Your go-to source for responsible antibiotic use.</h3>
-            <p>Navigating the world of antibiotics can be confusing.<br> We're here to guide you through the proper use of antibiotics, and help make informed choices for your health.<br> With our chatbot, finding relevant and accurate information has never been easier.</p>
+            <p>Navigating the world of antibiotics can be confusing.<br> We're here to guide you through the proper use
+                of antibiotics, and help make informed choices for your health.<br> With our chatbot, finding relevant
+                and accurate information has never been easier.</p>
             <h4> Click below to start your journey toward responsible antibiotic use today!</h3>
-            <a href="#chat_bot_section" class="hero-btn"><span>TRY OUR CHATBOT!</span></a>
-        </div>  
+                <a href="#chat_bot_section" class="hero-btn"><span>TRY OUR CHATBOT!</span></a>
+        </div>
     </section>
-    
+
     <!--------Chat Bot-------->
     <section class="chat_bot_master">
         <div class="chat-header">
             <h2>MedEdMate Chatbot</h2>
         </div>
         <div class="chatbot" id="chat_bot_section">
-            <div class="chatbox"></div>
-            <div id="chatConversation"></div>
+            <div class="chatbox">
+                <div id="chatConversation"></div>
+            </div>
+
 
             <div class="chat-input">
                 <textarea placeholder="Enter a message..." id="inputField"></textarea>
                 <span id="chatButton" class="chat-send-btn">
                     <i class="material-icons icon">send</i>
-                </span>                  
+                </span>
             </div>
         </div>
     </section>
@@ -70,17 +78,17 @@
         <h4>1. Enter your zip code or city in the search bar.</h4>
         <h4>2. Click on the "Find Location" button. </h4>
         <h4>3. Browse the map to see the closest disposal centers.</h4>
-        
+
         <div id="map-search">
             <div class="input-wrapper">
                 <input type="text" id="location-input" placeholder="Enter Zip Code or City">
                 <button id="find-button" class="hero-btn"><span>Find Location</span></button>
             </div>
         </div>
-        
+
         <div id="map-container"> </div>
-    </section>  
-    
+    </section>
+
     <!----To-Top-Button---->
     <a href="#" class="to-top">
         <i class="fa fa-chevron-up"></i>
@@ -96,14 +104,14 @@
             <li><a href="faq.html">FAQs</a></li>
             <li><a href="about.html">ABOUT US</a></li>
         </ul>
-        <ul class="social-icon"> 
+        <ul class="social-icon">
             <li><a href=""><i class="fa fa-facebook-square"></i></a></li>
             <li><a href=""><i class="fa fa-instagram"></i></a></li>
             <li><a href=""><i class="fa fa-linkedin-square"></i></a></li>
             <li><a href=""><i class="fa fa-envelope"></i></a></li>
         </ul>
         <div class="right-image">
-            <a href="https://www.um.edu.mt/ict/ai/" target="_blank"><img src="/img/other/uom.png" alt="Right Image" ></a>
+            <a href="https://www.um.edu.mt/ict/ai/" target="_blank"><img src="/img/other/uom.png" alt="Right Image"></a>
         </div>
         <p>©2023 MedEdMate | All Rights Reserved</p>
     </footer>
@@ -114,17 +122,17 @@
     <script>
         var navLinks = document.getElementById("navLinks");
 
-        function showMenu(){
+        function showMenu() {
             navLinks.style.right = "0";
         }
-        function hideMenu(){
-            navLinks.style.right = "-270px"; 
+        function hideMenu() {
+            navLinks.style.right = "-270px";
         }
     </script>
 
     <!--------JavaScript for to-top arrow-------->
     <script>
-        window.addEventListener('scroll', function() {
+        window.addEventListener('scroll', function () {
             const toTopButton = document.querySelector('.to-top');
             if (window.pageYOffset > 100) {
                 toTopButton.classList.add('active');
@@ -132,32 +140,33 @@
                 toTopButton.classList.remove('active');
             }
         });
-    </script>  
+    </script>
 
     <!--------JavaScript for Slider Button-------->
     <script>
-        document.getElementById('theme-slider-checkbox').addEventListener('change', function() {
+        document.getElementById('theme-slider-checkbox').addEventListener('change', function () {
             window.location.href = this.checked ? 'simple_ui.html' : 'index.html';
         });
     </script>
 
     <!--------JavaScript for Disposal Map-------->
-    <script async src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDWj-SHQnt36YU6Wf_KhYQdqzm2v7YuIVM&libraries=places,marker&callback=makeMap&v=beta&"></script>
+    <script async
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDWj-SHQnt36YU6Wf_KhYQdqzm2v7YuIVM&libraries=places,marker&callback=makeMap&v=beta&"></script>
     <script>
         var map
         var service
 
-        function makeMap(){
-            var currentLocation = {lat: 0,lng: 0}
+        function makeMap() {
+            var currentLocation = { lat: 0, lng: 0 }
 
-            if(navigator.geolocation){
+            if (navigator.geolocation) {
                 navigator.geolocation.getCurrentPosition((loc) => {
                     currentLocation.lat = loc.coords.latitude;
                     currentLocation.lng = loc.coords.longitude;
 
                     map = new google.maps.Map(document.getElementById("map-container"), {
                         mapId: "eb7aae83c639ac98",
-                        center: currentLocation, 
+                        center: currentLocation,
                         zoom: 13
                     })
 
@@ -174,7 +183,7 @@
                         location: currentLocation,
                         radius: 1000
                     };
-                
+
                     var service = new google.maps.places.PlacesService(map);
                     service.nearbySearch(request1, callback1);
 
@@ -184,7 +193,7 @@
                         location: currentLocation,
                         radius: 1000
                     };
-                
+
                     var service = new google.maps.places.PlacesService(map);
                     service.nearbySearch(request2, callback2);
                 })
@@ -193,11 +202,11 @@
 
         function callback1(results) {
             for (var i = 0; i < results.length; i++) {
-                if (i<5){
+                if (i < 5) {
                     var place = results[i];
                     new google.maps.Marker({
                         map: map,
-                        position:place.geometry.location,
+                        position: place.geometry.location,
                         title: "Pharmacy: " + (place.name),
                         // icon: image // We can add an image here instead of marker
                     })
@@ -207,11 +216,11 @@
 
         function callback2(results) {
             for (var i = 0; i < results.length; i++) {
-                if (i<5){
+                if (i < 5) {
                     var place = results[i];
                     new google.maps.Marker({
                         map: map,
-                        position:place.geometry.location,
+                        position: place.geometry.location,
                         title: "Doctor: " + (place.name),
                         // icon: image // We can add an image here instead of marker
                     })
@@ -250,6 +259,7 @@
                 // Display user message
                 const messageElement = document.createElement('div');
                 messageElement.innerHTML = ` ${message} `;
+                messageElement.classList.add('chat-message');
                 chatMessages.appendChild(messageElement);
                 chatMessages.scrollTop = chatMessages.scrollHeight;
                 chatInput.value = '';
@@ -281,7 +291,7 @@
                     "frequency_penalty": 0,
                     "presence_penalty": 0
                 };
-                
+
                 fetch(url, {
                     method: 'POST',
                     headers: headers,
@@ -299,6 +309,7 @@
                 const chatMessages = document.getElementById('chatConversation');
                 const replyElement = document.createElement('div');
                 replyElement.innerHTML = ` ${message} `;
+                replyElement.classList.add('reply-message');
                 chatMessages.appendChild(replyElement);
                 chatMessages.scrollTop = chatMessages.scrollHeight;
             }
