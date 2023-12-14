@@ -4,24 +4,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/x-icon" href="img\740pill_100923.ico">
+    <link rel="icon" type="image/x-icon" href="{{url_for('static', filename='img/740pill_100923.ico')}}">
     <title>MedEdMate Website</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="style/style.css">
-    <link rel="stylesheet" href="style/faq.css">
+    <link rel="stylesheet" href="{{url_for('static', filename='style/style.css')}}">
+    <link rel="stylesheet" href="{{url_for('static', filename='style/faq.css')}}">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
 <body class="background_about_us2"> 
     <!--------Header-------->
     <nav>
-        <a href="index.html"><img src="/img/logo.png"></a>
+        <a href="{{url_for('index')}}"><img src="{{url_for('static', filename='/img/logo.png')}}"></a>
         <div class="nav-links" id="navLinks">
             <i class="fa fa-times" onclick="hideMenu()"></i>
             <ul>
-                <li><a href="index.html">HOME</a></li>
-                <li><a href="faq.html">FAQs</a></li>
-                <li><a href="about.html">ABOUT US</a></li>
+                <li><a href="{{url_for('index')}}">HOME</a></li>
+                <li><a href="{{url_for('faq')}}">FAQs</a></li>
+                <li><a href="{{url_for('about')}}">ABOUT US</a></li>
                 <!-- Slider Toggle Button -->
                 <li class="theme-slider">
                     <label class="switch">
@@ -315,8 +315,8 @@
                         complicating future treatment.
                     </p>
                     <div id="youngCard1" class="youngIconContainer">
-                        <img src="img/robot_normal.png" alt="Robot Normal Icon" class="youngRobotImage">
-                        <img src="img/robot_thinking.png" alt="Robot Thinking Icon" class="youngRobotImage">
+                        <img src="{{url_for('static', filename='img/robot_normal.png')}}" alt="Robot Normal Icon" class="youngRobotImage">
+                        <img src="{{url_for('static', filename='img/robot_thinking.png')}}" alt="Robot Thinking Icon" class="youngRobotImage">
                     </div>
                 </div>
             </div>
@@ -330,8 +330,8 @@
                         infections. Treat symptoms of a cold by staying hydrated and resting. See a doctor if needed.
                     </p>
                     <div id="youngCard2" class="youngIconContainer">
-                        <img src="img/robot_normal.png" alt="Robot Normal Icon" class="youngRobotImage">
-                        <img src="img/robot_thinking.png" alt="Robot Thinking Icon" class="youngRobotImage">
+                        <img src="{{url_for('static', filename='img/robot_normal.png')}}" alt="Robot Normal Icon" class="youngRobotImage">
+                        <img src="{{url_for('static', filename='img/robot_thinking.png')}}" alt="Robot Thinking Icon" class="youngRobotImage">
                     </div>
                 </div>
             </div>
@@ -344,8 +344,8 @@
                     <p>At least half of all ear infections go away without antibiotics. Many true ear infections are
                         caused by viruses and do not require antibiotics.</p>
                     <div id="youngCard3" class="youngIconContainer">
-                        <img src="img/robot_normal.png" alt="Robot Normal Icon" class="youngRobotImage">
-                        <img src="img/robot_thinking.png" alt="Robot Thinking Icon" class="youngRobotImage">
+                        <img src="{{url_for('static', filename='img/robot_normal.png')}}" alt="Robot Normal Icon" class="youngRobotImage">
+                        <img src="{{url_for('static', filename='img/robot_thinking.png')}}" alt="Robot Thinking Icon" class="youngRobotImage">
                     </div>
                 </div>
             </div>
@@ -361,8 +361,8 @@
                     <p>Side effects occur in up to 1 in 5 children who take an antibiotic. Side effects may include
                         rashes, allergic reactions, nausea, diarrhea, and stomach pain.</p>
                     <div id="youngCard4" class="youngIconContainer">
-                        <img src="img/robot_normal.png" alt="Robot Normal Icon" class="youngRobotImage">
-                        <img src="img/robot_thinking.png" alt="Robot Thinking Icon" class="youngRobotImage">
+                        <img src="{{url_for('static', filename='img/robot_normal.png')}}" alt="Robot Normal Icon" class="youngRobotImage">
+                        <img src="{{url_for('static', filename='img/robot_thinking.png')}}" alt="Robot Thinking Icon" class="youngRobotImage">
                     </div>
                 </div>
             </div>
@@ -375,8 +375,8 @@
                     <p>Most bacterial infections improve within 48 to 72 hours of starting an antibiotic. If your
                         child's symptoms get worse or do not improve within 72 hours, call your child's doctor.</p>
                     <div id="youngCard5" class="youngIconContainer">
-                        <img src="img/robot_normal.png" alt="Robot Normal Icon" class="youngRobotImage">
-                        <img src="img/robot_thinking.png" alt="Robot Thinking Icon" class="youngRobotImage">
+                        <img src="{{url_for('static', filename='img/robot_normal.png')}}" alt="Robot Normal Icon" class="youngRobotImage">
+                        <img src="{{url_for('static', filename='img/robot_thinking.png')}}" alt="Robot Thinking Icon" class="youngRobotImage">
                     </div>
                 </div>
             </div>
@@ -390,8 +390,8 @@
                         as part of an overall treatment plan.
                     </p>
                     <div id="youngCard6" class="youngIconContainer">
-                        <img src="img/robot_normal.png" alt="Robot Normal Icon" class="youngRobotImage">
-                        <img src="img/robot_thinking.png" alt="Robot Thinking Icon" class="youngRobotImage">
+                        <img src="{{url_for('static', filename='img/robot_normal.png')}}" alt="Robot Normal Icon" class="youngRobotImage">
+                        <img src="{{url_for('static', filename='img/robot_thinking.png')}}" alt="Robot Thinking Icon" class="youngRobotImage">
                     </div>
                 </div>
             </div>
@@ -408,8 +408,8 @@
                         your child use the antibiotic specific for the infection, rather than an
                         antibiotic that would treat a broader range of infections.</p>
                     <div id="youngCard7" class="youngIconContainer">
-                        <img src="img/robot_normal.png" alt="Robot Normal Icon" class="youngRobotImage">
-                        <img src="img/robot_thinking.png" alt="Robot Thinking Icon" class="youngRobotImage">
+                        <img src="{{url_for('static', filename='img/robot_normal.png')}}" alt="Robot Normal Icon" class="youngRobotImage">
+                        <img src="{{url_for('static', filename='img/robot_thinking.png')}}" alt="Robot Thinking Icon" class="youngRobotImage">
                     </div>
                 </div>
             </div>
@@ -422,8 +422,8 @@
                     <p>You can give paracetamol to children aged 2 months or older for pain or fever. You can give
                         paracetamol to children aged 2 months or older for pain or fever</p>
                     <div id="youngCard8" class="youngIconContainer">
-                        <img src="img/robot_normal.png" alt="Robot Normal Icon" class="youngRobotImage">
-                        <img src="img/robot_thinking.png" alt="Robot Thinking Icon" class="youngRobotImage">
+                        <img src="{{url_for('static', filename='img/robot_normal.png')}}" alt="Robot Normal Icon" class="youngRobotImage">
+                        <img src="{{url_for('static', filename='img/robot_thinking.png')}}" alt="Robot Thinking Icon" class="youngRobotImage">
                     </div>
                 </div>
             </div>
@@ -437,8 +437,8 @@
                         if they feel better.
                     </p>
                     <div id="youngCard9" class="youngIconContainer">
-                        <img src="img/robot_normal.png" alt="Robot Normal Icon" class="youngRobotImage">
-                        <img src="img/robot_thinking.png" alt="Robot Thinking Icon" class="youngRobotImage">
+                        <img src="{{url_for('static', filename='img/robot_normal.png')}}" alt="Robot Normal Icon" class="youngRobotImage">
+                        <img src="{{url_for('static', filename='img/robot_thinking.png')}}" alt="Robot Thinking Icon" class="youngRobotImage">
                     </div>
                 </div>
             </div>
@@ -453,12 +453,12 @@
     <!----Footer---->
     <footer>
         <div class="left-image">
-            <a href="index.html"><img src="/img/logo.png" alt="Left Image"></a>
+            <a href="{{url_for('index')}}"><img src="{{url_for('static', filename='/img/logo.png')}}" alt="Left Image"></a>
         </div>
         <ul class="menu">
-            <li><a href="index.html">HOME</a></li>
-            <li><a href="faq.html">FAQs</a></li>
-            <li><a href="about.html">ABOUT US</a></li>
+            <li><a href="{{url_for('index')}}">HOME</a></li>
+            <li><a href="{{url_for('faq')}}">FAQs</a></li>
+            <li><a href="{{url_for('about')}}">ABOUT US</a></li>
         </ul>
         <ul class="social-icon">
             <li><a href=""><i class="fa fa-facebook-square"></i></a></li>
@@ -467,7 +467,7 @@
             <li><a href=""><i class="fa fa-envelope"></i></a></li>
         </ul>
         <div class="right-image">
-            <a href="https://www.um.edu.mt/ict/ai/" target="_blank"><img src="/img/other/uom.png" alt="Right Image"></a>
+            <a href="https://www.um.edu.mt/ict/ai/" target="_blank"><img src="{{url_for('static', filename='/img/other/uom.png')}}" alt="Right Image"></a>
         </div>
         <p>©2023 MedEdMate | All Rights Reserved</p>
     </footer>
@@ -499,7 +499,7 @@
     <!--------JavaScript for Slider Button-------->
     <script>
         document.getElementById('theme-slider-checkbox').addEventListener('change', function () {
-            window.location.href = this.checked ? 'simple_ui.html' : 'index.html';
+            window.location.href = this.checked ? "{{url_for('simple_ui')}}": "{{url_for('index')}}";
         });
     </script>
 
@@ -513,8 +513,8 @@
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 
     <!-- FAQ Script-->
-    <script src="/js/fagAgeLogic.js"></script>
-    <script src="/js/faqRobotLogic.js"></script>
+    <script src="{{url_for('static', filename='/js/fagAgeLogic.js')}}"></script>
+    <script src="{{url_for('static', filename='/js/faqRobotLogic.js')}}"></script>
 </body>
 
 </html>

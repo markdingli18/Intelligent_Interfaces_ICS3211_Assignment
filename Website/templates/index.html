@@ -5,8 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MedEdMate Website</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='style/style.css') }}">
-    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='img\740pill_100923.ico') }}">
+    <link rel="stylesheet" href="{{url_for('static', filename='style/style.css')}}">
+    <link rel="icon" type="image/x-icon" href="{{url_for('static', filename='img\740pill_100923.ico')}}">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
@@ -20,13 +20,13 @@
     <!--------Header-------->
     <section class="header">
         <nav>
-            <a href="{{ url_for('index') }}"><img src="{{ url_for('static', filename='/img/logo.png') }}"></a>
+            <a href="{{url_for('index')}}"><img src="{{url_for('static', filename='/img/logo.png')}}"></a>
             <div class="nav-links" id="navLinks">
                 <i class="fa fa-times" onclick="hideMenu()"></i>
                 <ul>
-                    <li><a href="{{ url_for('index') }}">HOME</a></li>
-                    <li><a href="{{ url_for('faq') }}">FAQs</a></li>
-                    <li><a href="{{ url_for('about') }}">ABOUT US</a></li>
+                    <li><a href="{{url_for('index')}}">HOME</a></li>
+                    <li><a href="{{url_for('faq')}}">FAQs</a></li>
+                    <li><a href="{{url_for('about')}}">ABOUT US</a></li>
                     <!-- Slider Toggle Button -->
                     <li class="theme-slider">
                         <label class="switch">
@@ -94,12 +94,12 @@
     <!----Footer---->
     <footer>
         <div class="left-image">
-            <a href="{{ url_for('index') }}"><img src="{{ url_for('static', filename='/img/logo.png') }}" alt="Left Image"></a>
+            <a href="{{url_for('index')}}"><img src="{{url_for('static', filename='/img/logo.png')}}" alt="Left Image"></a>
         </div>
         <ul class="menu">
-            <li><a href="{{ url_for('index') }}">HOME</a></li>
-            <li><a href="{{ url_for('faq') }}">FAQs</a></li>
-            <li><a href="{{ url_for('about') }}">ABOUT US</a></li>
+            <li><a href="{{url_for('index')}}">HOME</a></li>
+            <li><a href="{{url_for('faq')}}">FAQs</a></li>
+            <li><a href="{{url_for('about')}}">ABOUT US</a></li>
         </ul>
         <ul class="social-icon">
             <li><a href=""><i class="fa fa-facebook-square"></i></a></li>
@@ -108,7 +108,7 @@
             <li><a href=""><i class="fa fa-envelope"></i></a></li>
         </ul>
         <div class="right-image">
-            <a href="https://www.um.edu.mt/ict/ai/" target="_blank"><img src="{{ url_for('static', filename='/img/other/uom.png') }}" alt="Right Image"></a>
+            <a href="https://www.um.edu.mt/ict/ai/" target="_blank"><img src="{{url_for('static', filename='/img/other/uom.png')}}" alt="Right Image"></a>
         </div>
         <p>©2023 MedEdMate | All Rights Reserved</p>
     </footer>
@@ -142,7 +142,7 @@
     <!--------JavaScript for Slider Button-------->
     <script>
         document.getElementById('theme-slider-checkbox').addEventListener('change', function () {
-            window.location.href = this.checked ? "{{ url_for('simple_ui') }}": "{{ url_for('index') }}";
+            window.location.href = this.checked ? "{{url_for('simple_ui')}}": "{{url_for('index')}}";
         });
     </script>
 
@@ -256,7 +256,7 @@
                 const messageElement = document.createElement('div');
                 const replyElement = document.createElement('div');
                 const imageIcon = document.createElement('img');
-                imageIcon.src = "{{ url_for('static', filename='img/robot_thinking.png') }}";
+                imageIcon.src = "{{url_for('static', filename='img/robot_thinking.png')}}";
                 imageIcon.height = 50;
                 imageIcon.width = 70;
 
@@ -307,11 +307,11 @@
                     .then(data => {
 
                         reply(data['choices'][0]['message']['content'].replace('Customer support:', ''), replyElement)
-                        imageIcon.src = "{{ url_for('static', filename='img/robot_normal.png') }}";
+                        imageIcon.src = "{{url_for('static', filename='img/robot_normal.png')}}";
                     }) // Logs the response data from the API to the console
                     .catch(error => console.error('Error:', error));
                 reply("[answer here, no token yet]", replyElement)
-                imageIcon.src = "{{ url_for('static', filename='img/robot_normal.png') }}";
+                imageIcon.src = "{{url_for('static', filename='img/robot_normal.png')}}";
             }
 
             function reply(message, replyElement) {

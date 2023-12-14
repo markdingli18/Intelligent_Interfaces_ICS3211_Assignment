@@ -192,7 +192,7 @@ function slideImage() {
 }
 
 function popTextBox(textToDisplay) {
-    img.src = 'img/robot_normal.png';
+    img.src = 'static/img/robot_normal.png';
     textBox.style.position = 'fixed';
     textBox.style.left = '420px';
     textBox.style.bottom = '320px';
@@ -214,7 +214,7 @@ function popTextBox(textToDisplay) {
     typeWriter(textToDisplay, textBox, 20, 0)
 
     //Add a X icon to the text box to clsoe the text box
-    closeIcon.src = 'img/CloseIcon.png';
+    closeIcon.src = 'static/img//CloseIcon.png';
     closeIcon.style.position = 'fixed';
     closeIcon.style.left = '793px';
     closeIcon.style.bottom = '395px';
@@ -275,7 +275,7 @@ function slideInImageAndDisplayText(textToDisplay) {
         timeoutDictionary["removingImage"] = timeoutRemoveImage;
     });
 
-    img.src = 'img/robot_thinking.png';
+    img.src = 'static/img/robot_thinking.png';
     img.style.position = 'fixed';
     img.style.bottom = '0';
     img.style.left = '-400px';
