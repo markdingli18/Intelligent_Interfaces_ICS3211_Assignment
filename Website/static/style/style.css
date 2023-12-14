@@ -8,7 +8,7 @@
 .header {
     min-height: 100vh;
     width: 100%;
-    background-image: linear-gradient(rgba(4, 9, 30, 0.622), rgba(4, 9, 30, 0.622)), url('../static/img/background4.jpg');
+    background-image: linear-gradient(rgba(4, 9, 30, 0.622), rgba(4, 9, 30, 0.622)), url('../img/background4.jpg');
     background-position: center;
     background-size: cover;
     position: relative;
@@ -249,7 +249,7 @@ nav .fa {
 .background_about_us {
     min-height: 100vh;
     width: 100%;
-    background-image: linear-gradient(rgba(4, 9, 30, 0.6), rgba(4, 9, 30, 0.6)), url("{{ url_for('static', filename='/img/background3.jpg') }}");
+    background-image: linear-gradient(rgba(4, 9, 30, 0.6), rgba(4, 9, 30, 0.6)), url("../img/background3.jpg");
     position: relative;
     background-repeat: no-repeat;
     background-attachment: fixed;
