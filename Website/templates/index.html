@@ -12,8 +12,10 @@
 </head>
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@48,400,1,0" />
+<link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+<link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@48,400,1,0" />
 
 
 
@@ -95,7 +97,8 @@
     <!----Footer---->
     <footer>
         <div class="left-image">
-            <a href="{{url_for('index')}}"><img src="{{url_for('static', filename='/img/logo.png')}}" alt="Left Image"></a>
+            <a href="{{url_for('index')}}"><img src="{{url_for('static', filename='/img/logo.png')}}"
+                    alt="Left Image"></a>
         </div>
         <ul class="menu">
             <li><a href="{{url_for('index')}}">HOME</a></li>
@@ -109,7 +112,8 @@
             <li><a href=""><i class="fa fa-envelope"></i></a></li>
         </ul>
         <div class="right-image">
-            <a href="https://www.um.edu.mt/ict/ai/" target="_blank"><img src="{{url_for('static', filename='/img/other/uom.png')}}" alt="Right Image"></a>
+            <a href="https://www.um.edu.mt/ict/ai/" target="_blank"><img
+                    src="{{url_for('static', filename='/img/other/uom.png')}}" alt="Right Image"></a>
         </div>
         <p>©2023 MedEdMate | All Rights Reserved</p>
     </footer>
@@ -143,12 +147,13 @@
     <!--------JavaScript for Slider Button-------->
     <script>
         document.getElementById('theme-slider-checkbox').addEventListener('change', function () {
-            window.location.href = this.checked ? "{{url_for('simple_ui')}}": "{{url_for('index')}}";
+            window.location.href = this.checked ? "{{url_for('simple_ui')}}" : "{{url_for('index')}}";
         });
     </script>
 
     <!--------JavaScript for Disposal Map-------->
-    <script async src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDWj-SHQnt36YU6Wf_KhYQdqzm2v7YuIVM&libraries=places,marker&callback=makeMap&v=beta&"></script>
+    <script async
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDWj-SHQnt36YU6Wf_KhYQdqzm2v7YuIVM&libraries=places,marker&callback=makeMap&v=beta&"></script>
     <script>
         var map
         var service
@@ -231,29 +236,37 @@
         const chatInput = document.getElementById('inputField');
         const chatSubmit = document.getElementById('chatButton');
         const chatMessages = document.getElementById('chatConversation');
-        
-        function getBotResponse(message){
+
+        function getBotResponse(message) {
             const messageElement = document.createElement('div');
-            
+
             const replyElement = document.createElement('div');
+            const thinkingBotElement = document.createElement('div');
             const imageIcon = document.createElement('img');
             imageIcon.src = "{{url_for('static', filename='img/robot_thinking.png')}}";
             imageIcon.height = 50;
             imageIcon.width = 70;
-            replyElement.appendChild(imageIcon);
+            imageIcon.content = "Robot thinking";
+            thinkingBotElement.appendChild(imageIcon);
+            thinkingBotElement.classList.add('reply-message');
             replyElement.classList.add('reply-message');
+
 
             messageElement.innerText = message;
             messageElement.classList.add('chat-message');
             chatMessages.appendChild(messageElement);
+            chatMessages.appendChild(thinkingBotElement);
             chatInput.value = ""
-            
+
             $.get("/get", { msg: message }).done(function (data) {
-                reply(data.replace('Customer support:', ''), replyElement)
                 imageIcon.src = "{{url_for('static', filename='img/robot_normal.png')}}";
+                replyElement.appendChild(imageIcon);
+                thinkingBotElement.remove();
+                reply(data.replace('Customer support:', ''), replyElement)
+                imageIcon.classList.add('reply-icon');
             });
         }
-        
+
         chatInput.addEventListener('keyup', function (event) {
             if (event.key === 'Enter') {
                 chatButton.click();

@@ -319,6 +319,10 @@ nav .fa {
     padding: 10px 15px;
 }
 
+#chatConversation .reply-message:last-of-type .reply-icon {
+    animation: bop 2s ease 0s infinite;
+}
+
 .chatbot .chatbox #chatConversation .chat-message {
     align-self: flex-end;
     max-width: fit-content;
@@ -859,5 +863,20 @@ p {
 
     .to-top {
         display: none;
+    }
+}
+
+/* Bopping Animation */
+@keyframes bop {
+    0% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+
+    100% {
+        transform: translateY(0px);
     }
 }
