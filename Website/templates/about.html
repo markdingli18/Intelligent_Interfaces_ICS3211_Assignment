@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='img\740pill_100923.ico') }}">
     <title>MedEdMate Website</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='styles/style.css') }}">
-    <link rel="stylesheet" href="{{ url_for('static', filename='styles/about.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style/about.css') }}">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"></head>
 <body class="background_about_us">
     <section class="sub-header">
@@ -43,6 +43,7 @@
             <p>At MedEdMate, our mission is to empower people to make informed decisions about antibiotic use. We aim to simplify the complex world of antibiotics through our interactive chatbot, providing easy-to-understand and accurate information. Our ultimate goal is to contribute to the fight against antibiotic resistance, a growing public health concern.</p>
         </div>
     </section>
+    
     <section class="what_we_do">
         <div class="title">
             <h2>What we Do</h2>
@@ -84,7 +85,7 @@
 <!----Footer---->
 <footer>
     <div class="left-image">
-        <a href="{{ url_for('index.html') }}"><img src="{{ url_for('static', filename='/img/logo.png') }}" alt="Left Image"></a>
+        <a href="{{ url_for('index') }}"><img src="{{ url_for('static', filename='/img/logo.png') }}" alt="Left Image"></a>
     </div>
     <ul class="menu">
         <li><a href="{{ url_for('index') }}">HOME</a></li>
