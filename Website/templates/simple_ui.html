@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MedEdMate Chatbot</title>
+    <link rel="icon" type="image/x-icon" href="{{url_for('static', filename='/img/740pill_100923.ico')}}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="{{url_for('static', filename='style/simple.css')}}">
+</head>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@48,400,1,0" />
+
+<body class="background_about_us">
+    <!--------Header-------->
+    <section class="header">
+        <nav>
+            <a href="{{url_for('index')}}"><img src="{{url_for('static', filename='/img/logo.png')}}"></a>
+            <div class="nav-links" id="navLinks">
+                <ul>
+                    <!-- Slider Toggle Button -->
+                    <li class="theme-slider">
+                        <label class="switch">
+                            <input type="checkbox" id="theme-slider-checkbox">
+                            <span class="slider round"></span>
+                        </label>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </section>
+
+    <!--------Chat Bot-------->
+    <section class="chat_bot_master">
+        <div class="chat-header">
+            <h2>MedEdMate Chatbot</h2>
+        </div>
+        <div class="chatbot" id="chat_bot_section">
+            <div class="chatbox">
+                <div id="chatConversation"></div>
+            </div>
+
+            <div class="chat-input">
+                <textarea placeholder="Enter a message..." id="inputField" name="msg"></textarea>
+                <span id="chatButton" class="chat-send-btn">
+                    <i class="material-icons icon">send</i>
+                </span>
+            </div>
+        </div>
+    </section>
+
+    <!----Footer---->
+    <footer>
+        <div class="left-image">
+            <a href="{{url_for('index')}}"><img src="{{url_for('static', filename='/img/logo.png')}}" alt="Left Image"></a>
+        </div>
+        <div class="right-image">
+            <a href="https://www.um.edu.mt/ict/ai/" target="_blank"><img src="{{url_for('static', filename='/img/other/uom.png')}}" alt="Right Image"></a>
+        </div>
+        <p>©2023 MedEdMate | All Rights Reserved</p>
+    </footer>
+
+    <!--------JavaScript for Slider Button-------->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Keep the slider 'on' on simple_ui.html
+            var slider = document.getElementById('theme-slider-checkbox');
+            slider.checked = true;
+            slider.addEventListener('change', function () {
+                window.location.href = this.checked ? "{{url_for('simple_ui')}}" : "{{url_for('index')}}";
+            });
+        });              
+    </script>
+
+    <!--------JavaScript for Chatbot-------->
+    <script>
+        const chatInput = document.getElementById('inputField');
+        const chatSubmit = document.getElementById('chatButton');
+        const chatMessages = document.getElementById('chatConversation');
+        
+        function getBotResponse(message){
+            const messageElement = document.createElement('div');
+            
+            const replyElement = document.createElement('div');
+            const imageIcon = document.createElement('img');
+            imageIcon.src = "{{url_for('static', filename='img/robot_thinking.png')}}";
+            imageIcon.height = 50;
+            imageIcon.width = 70;
+            replyElement.appendChild(imageIcon);
+            replyElement.classList.add('reply-message');
+
+            messageElement.innerText = message;
+            messageElement.classList.add('chat-message');
+            chatMessages.appendChild(messageElement);
+            chatInput.value = ""
+            
+            $.get("/get", { msg: message }).done(function (data) {
+                reply(data.replace('Customer support:', ''), replyElement)
+                imageIcon.src = "{{url_for('static', filename='img/robot_normal.png')}}";
+            });
+        }
+        
+        chatInput.addEventListener('keyup', function (event) {
+            if (event.key === 'Enter') {
+                chatButton.click();
+            }
+        });
+
+        chatSubmit.addEventListener('click', function () {
+            const message = chatInput.value.trim();
+            if (!message) return;
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+            getBotResponse(message);
+        });
+
+        function reply(message, replyElement) {
+            const chatMessages = document.getElementById('chatConversation');
+            const textElement = document.createElement('span'); // Create a new div for text
+            textElement.innerText = ` ${message} `;
+            textElement.classList.add('reply-text');
+            replyElement.appendChild(textElement);
+            chatMessages.appendChild(replyElement);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+    </script>
+</body>
+
+</html>

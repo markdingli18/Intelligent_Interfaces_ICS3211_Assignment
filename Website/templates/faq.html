@@ -4,8 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/x-icon" href="{{url_for('static', filename='img/740pill_100923.ico')}}">
-    <title>MedEdMate Website</title>
+    <link rel="icon" type="image/x-icon" href="{{url_for('static', filename='/img/740pill_100923.ico')}}">
+    <title>MedEdMate FAQs</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="{{url_for('static', filename='style/style.css')}}">
     <link rel="stylesheet" href="{{url_for('static', filename='style/faq.css')}}">
@@ -461,10 +461,10 @@
             <li><a href="{{url_for('about')}}">ABOUT US</a></li>
         </ul>
         <ul class="social-icon">
-            <li><a href=""><i class="fa fa-facebook-square"></i></a></li>
-            <li><a href=""><i class="fa fa-instagram"></i></a></li>
-            <li><a href=""><i class="fa fa-linkedin-square"></i></a></li>
-            <li><a href=""><i class="fa fa-envelope"></i></a></li>
+            <li><a href="#"><i class="fa fa-facebook-square"></i></a></li>
+            <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+            <li><a href="#"><i class="fa fa-linkedin-square"></i></a></li>
+            <li><a href="#"><i class="fa fa-envelope"></i></a></li>
         </ul>
         <div class="right-image">
             <a href="https://www.um.edu.mt/ict/ai/" target="_blank"><img src="{{url_for('static', filename='/img/other/uom.png')}}" alt="Right Image"></a>
@@ -498,9 +498,14 @@
 
     <!--------JavaScript for Slider Button-------->
     <script>
-        document.getElementById('theme-slider-checkbox').addEventListener('change', function () {
-            window.location.href = this.checked ? "{{url_for('simple_ui')}}": "{{url_for('index')}}";
-        });
+        document.addEventListener('DOMContentLoaded', function () {
+            var slider = document.getElementById('theme-slider-checkbox');
+            slider.checked = false; // Ensure the slider is 'off' on faq.html
+        
+            slider.addEventListener('change', function () {
+                window.location.href = this.checked ? "{{url_for('simple_ui')}}" : "{{url_for('faq')}}";
+            });
+        });        
     </script>
 
     <!--------BootStrap JS------->
