@@ -55,7 +55,14 @@
         </div>
         <div class="chatbot" id="chat_bot_section">
             <div class="chatbox">
-                <div id="chatConversation"></div>
+                <div id="chatConversation">
+                    <div class="reply-message">
+                        <img src="/static/img/robot_normal.png" height="50" width="70">
+                        <span class="reply-text">
+                            Welcome to MedEdMate! I'm here to help with your antibiotic-related questions. How can I assist you today?
+                        </span>                            
+                    </div>
+                </div>
             </div>
 
             <div class="chat-input">
@@ -70,17 +77,6 @@
     <!--------Dispose Part-------->
     <section class="dispose" id="dispose_section">
         <h1>Find a Disposal Location Near You</h1>
-        <h4>1. Enter your zip code or city in the search bar.</h4>
-        <h4>2. Click on the "Find Location" button. </h4>
-        <h4>3. Browse the map to see the closest disposal centers.</h4>
-
-        <div id="map-search">
-            <div class="input-wrapper">
-                <input type="text" id="location-input" placeholder="Enter Zip Code or City">
-                <button id="find-button" class="hero-btn"><span>Find Location</span></button>
-            </div>
-        </div>
-
         <div id="map-container"> </div>
     </section>
 
@@ -153,10 +149,12 @@
         var map
         var service
 
-        function makeMap() {
+        async function makeMap() {
             var currentLocation = { lat: 0, lng: 0 }
 
             if (navigator.geolocation) {
+                const { AdvancedMarkerElement, PinElement} = await google.maps.importLibrary("marker");
+
                 navigator.geolocation.getCurrentPosition((loc) => {
                     currentLocation.lat = loc.coords.latitude;
                     currentLocation.lng = loc.coords.longitude;
@@ -166,63 +164,83 @@
                         center: currentLocation,
                         zoom: 13
                     })
+                    
+                    // Current Location
+                    const pinBackground = new PinElement({
+                        background: "#ED171F",
+                        glyphColor: "white",
+                    });
 
-                    currentMarker = new google.maps.Marker({
+                    currentMarker = new AdvancedMarkerElement({
                         map: map,
                         position: currentLocation,
                         title: "Current Location",
-                        // icon: image // We can add an image here instead of marker
-                    });
+                        content: pinBackground.element,
+                    })
+                    // Current Location
 
-
+                    // Pharmacy
                     var request1 = {
                         type: "pharmacy",
                         location: currentLocation,
-                        radius: 1000
+                        radius: 10000
                     };
 
                     var service = new google.maps.places.PlacesService(map);
                     service.nearbySearch(request1, callback1);
+                    // Pharmacy
 
-
+                    // Doctor
                     var request2 = {
                         type: "doctor",
                         location: currentLocation,
-                        radius: 1000
+                        radius: 10000
                     };
 
                     var service = new google.maps.places.PlacesService(map);
                     service.nearbySearch(request2, callback2);
+                    // Doctor
                 })
             }
         }
 
-        function callback1(results) {
-            for (var i = 0; i < results.length; i++) {
-                if (i < 5) {
-                    var place = results[i];
-                    new google.maps.Marker({
-                        map: map,
-                        position: place.geometry.location,
-                        title: "Pharmacy: " + (place.name),
-                        // icon: image // We can add an image here instead of marker
-                    })
-                }
-            }
+        async function callback1(result) {
+            border = "5E8700"
+            back = "#5ED000"
+            prefix = "Pharmacy: "
+            createMarker(result[0], prefix, border, back)
+            createMarker(result[1], prefix, border, back)
+            createMarker(result[2], prefix, border, back)
+            createMarker(result[3], prefix, border, back)
+            createMarker(result[4], prefix, border, back)
         }
 
-        function callback2(results) {
-            for (var i = 0; i < results.length; i++) {
-                if (i < 5) {
-                    var place = results[i];
-                    new google.maps.Marker({
-                        map: map,
-                        position: place.geometry.location,
-                        title: "Doctor: " + (place.name),
-                        // icon: image // We can add an image here instead of marker
-                    })
-                }
-            }
+        function callback2(result) {
+            border = "0F2DA4"
+            back = "#0F9CE7"
+            prefix = "Doctor: "
+            createMarker(result[0], prefix, border, back)
+            createMarker(result[1], prefix, border, back)
+            createMarker(result[2], prefix, border, back)
+            createMarker(result[3], prefix, border, back)
+            createMarker(result[4], prefix, border, back)
+        }
+
+        async function createMarker(result, prefix, border, back){
+            const { AdvancedMarkerElement, PinElement} = await google.maps.importLibrary("marker");
+
+            const pB = new PinElement({
+                background: back,
+                borderColor: border,
+                glyphColor: "white",
+            });
+            
+            const marker = new AdvancedMarkerElement({
+                map: map,
+                position: result.geometry.location,
+                title: prefix + (result.name),
+                content: pB.element,
+            })
         }
     </script>
 
@@ -231,11 +249,13 @@
         const chatInput = document.getElementById('inputField');
         const chatSubmit = document.getElementById('chatButton');
         const chatMessages = document.getElementById('chatConversation');
-        
+
         function getBotResponse(message){
+            console.log(document.getElementById('chatConversation'));
+
             const messageElement = document.createElement('div');
-            
             const replyElement = document.createElement('div');
+
             const imageIcon = document.createElement('img');
             imageIcon.src = "{{url_for('static', filename='img/robot_thinking.png')}}";
             imageIcon.height = 50;
