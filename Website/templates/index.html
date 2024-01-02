@@ -12,8 +12,10 @@
 </head>
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@48,400,1,0" />
+<link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+<link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@48,400,1,0" />
 
 <body class="background_about_us">
     <!--------Header-------->
@@ -48,6 +50,14 @@
         </div>
     </section>
 
+    <section id="YTSection">
+        <iframe width="720" height="405" src="https://www.youtube.com/embed/cOvKNqdkk_I?si=diIB3zao8wCoeBx2&amp;start=6"
+            title="YouTube video player" frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen></iframe>
+    </section>
+
+
     <!--------Chat Bot-------->
     <section class="chat_bot_master">
         <div class="chat-header">
@@ -59,8 +69,9 @@
                     <div class="reply-message">
                         <img src="/static/img/robot_normal.png" height="50" width="70">
                         <span class="reply-text">
-                            Welcome to MedEdMate! I'm here to help with your antibiotic-related questions. How can I assist you today?
-                        </span>                            
+                            Welcome to MedEdMate! I'm here to help with your antibiotic-related questions. How can I
+                            assist you today?
+                        </span>
                     </div>
                 </div>
             </div>
@@ -77,7 +88,7 @@
     <!--------Dispose Part-------->
     <section class="dispose" id="dispose_section">
         <h1>Find a Disposal Location Near You</h1>
-        <div id="map-container"> </div>
+        <div id="map-container"></div>
     </section>
 
     <!----To-Top-Button---->
@@ -88,7 +99,8 @@
     <!----Footer---->
     <footer>
         <div class="left-image">
-            <a href="{{url_for('index')}}"><img src="{{url_for('static', filename='/img/logo.png')}}" alt="Left Image"></a>
+            <a href="{{url_for('index')}}"><img src="{{url_for('static', filename='/img/logo.png')}}"
+                    alt="Left Image"></a>
         </div>
         <ul class="menu">
             <li><a href="{{url_for('index')}}">HOME</a></li>
@@ -102,7 +114,8 @@
             <li><a href="#"><i class="fa fa-envelope"></i></a></li>
         </ul>
         <div class="right-image">
-            <a href="https://www.um.edu.mt/ict/ai/" target="_blank"><img src="{{url_for('static', filename='/img/other/uom.png')}}" alt="Right Image"></a>
+            <a href="https://www.um.edu.mt/ict/ai/" target="_blank"><img
+                    src="{{url_for('static', filename='/img/other/uom.png')}}" alt="Right Image"></a>
         </div>
         <p>©2023 MedEdMate | All Rights Reserved</p>
     </footer>
@@ -144,7 +157,8 @@
     </script>
 
     <!--------JavaScript for Disposal Map-------->
-    <script async src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDWj-SHQnt36YU6Wf_KhYQdqzm2v7YuIVM&libraries=places,marker&callback=makeMap&v=beta&"></script>
+    <script async
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDWj-SHQnt36YU6Wf_KhYQdqzm2v7YuIVM&libraries=places,marker&callback=makeMap&v=beta&"></script>
     <script>
         var map
         var service
@@ -153,7 +167,7 @@
             var currentLocation = { lat: 0, lng: 0 }
 
             if (navigator.geolocation) {
-                const { AdvancedMarkerElement, PinElement} = await google.maps.importLibrary("marker");
+                const { AdvancedMarkerElement, PinElement } = await google.maps.importLibrary("marker");
 
                 navigator.geolocation.getCurrentPosition((loc) => {
                     currentLocation.lat = loc.coords.latitude;
@@ -164,7 +178,7 @@
                         center: currentLocation,
                         zoom: 13
                     })
-                    
+
                     // Current Location
                     const pinBackground = new PinElement({
                         background: "#ED171F",
@@ -199,7 +213,7 @@
 
                     var service = new google.maps.places.PlacesService(map);
                     service.nearbySearch(request2, callback2);
-                    // Doctor
+                    createLegend();
                 })
             }
         }
@@ -226,21 +240,32 @@
             createMarker(result[4], prefix, border, back)
         }
 
-        async function createMarker(result, prefix, border, back){
-            const { AdvancedMarkerElement, PinElement} = await google.maps.importLibrary("marker");
+        async function createMarker(result, prefix, border, back) {
+            const { AdvancedMarkerElement, PinElement } = await google.maps.importLibrary("marker");
 
             const pB = new PinElement({
                 background: back,
                 borderColor: border,
                 glyphColor: "white",
             });
-            
+
             const marker = new AdvancedMarkerElement({
                 map: map,
                 position: result.geometry.location,
                 title: prefix + (result.name),
                 content: pB.element,
             })
+        }
+
+        function createLegend() {
+            var legend = document.createElement('div');
+            legend.id = 'legend';
+            var legendImage = document.createElement('img');
+            legendImage.src = "{{url_for('static', filename='/img/Key.png')}}";
+            legendImage.style = "width: 200px; height: 100px;";
+            legend.appendChild(legendImage);
+            legend.style = "background-color: white; padding: 10px; border-radius: 10px; border: 1px solid #ccc";
+            map.controls[google.maps.ControlPosition.RIGHT_BOTTOM].push(legend);
         }
     </script>
 
@@ -250,7 +275,7 @@
         const chatSubmit = document.getElementById('chatButton');
         const chatMessages = document.getElementById('chatConversation');
 
-        function getBotResponse(message){
+        function getBotResponse(message) {
             console.log(document.getElementById('chatConversation'));
 
             const messageElement = document.createElement('div');
@@ -266,14 +291,15 @@
             messageElement.innerText = message;
             messageElement.classList.add('chat-message');
             chatMessages.appendChild(messageElement);
+            chatMessages.appendChild(replyElement);
             chatInput.value = ""
-            
+
             $.get("/get", { msg: message }).done(function (data) {
                 reply(data.replace('Customer support:', ''), replyElement)
                 imageIcon.src = "{{url_for('static', filename='img/robot_normal.png')}}";
             });
         }
-        
+
         chatInput.addEventListener('keyup', function (event) {
             if (event.key === 'Enter') {
                 chatButton.click();

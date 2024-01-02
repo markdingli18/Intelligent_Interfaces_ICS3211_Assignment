@@ -257,6 +257,14 @@ nav .fa {
     background-size: cover;
 }
 
+#YTSection {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 40px 0;
+    height: 420px;
+}
+
 /* Chat Bot Section */
 .chat_bot_master {
     display: flex;

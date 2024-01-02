@@ -9,13 +9,14 @@ const youngSection = document.getElementById('youngSection');
 const adultSection = document.getElementById('adultSection');
 const elderSection = document.getElementById('elderSection');
 
-const tutorialText = "This is a tutorial";
+var tutorialText = "Click on the 'Learn More' button to learn more about a specific question.";
 var currentSelected = null;
 var currentButton = null;
 
 
 // Add an event listener to the button
 youngButton.addEventListener('click', () => {
+    tutorialText = "Click on the Robot icons button to learn more about a specific question.";
     // Add the class to the element
     youngSection.classList.remove('vanish');
     youngButton.classList.add('flickerBorder');
